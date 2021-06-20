@@ -247,10 +247,12 @@
 </li>
 </ol>
 <p>通过wireshark网络分析<br>直接在win10上通过psexec管理win2008</p>
-<hr>
-<h2 id="PsExec-exe-192-168-154-31-u-administrator-p-123456-cmd"><a href="#PsExec-exe-192-168-154-31-u-administrator-p-123456-cmd" class="headerlink" title=".\PsExec.exe \192.168.154.31 -u administrator -p 123456 cmd"></a>.\PsExec.exe \192.168.154.31 -u administrator -p 123456 cmd</h2><p><img src="/img/psexec/10.png" srcset="/img/loading.gif" lazyload></p>
+<p><code>.\PsExec.exe \\192.168.154.31 -u administrator -p 123456 cmd</code></p>
+<p><img src="/img/psexec/10.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/img/psexec/11.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="设置过滤规则"><a href="#设置过滤规则" class="headerlink" title="设置过滤规则"></a>设置过滤规则</h2><h2 id="ip-src-192-168-154-31-or-ip-dst-192-168-154-31"><a href="#ip-src-192-168-154-31-or-ip-dst-192-168-154-31" class="headerlink" title="ip.src==192.168.154.31 or ip.dst==192.168.154.31"></a>ip.src==192.168.154.31 or ip.dst==192.168.154.31</h2><p><img src="/img/psexec/12.png" srcset="/img/loading.gif" lazyload></p>
+<p>设置过滤规则</p>
+<p><code>ip.src==192.168.154.31 or ip.dst==192.168.154.31</code></p>
+<p><img src="/img/psexec/12.png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li><p>先进行TCP三次握手</p>
 </li>
