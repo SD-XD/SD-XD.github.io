@@ -416,12 +416,7 @@
 <p>打开系统日志查看</p>
 <p><img src="/img/psexec/22.png" srcset="/img/loading.gif" lazyload></p>
 <p>我的理解是:要创建一个服务的话这个服务得是满足windows服务规定的格式,而不是随便一个pe文件都可以充当服务</p>
-<h2 id="编写服务程序"><a href="#编写服务程序" class="headerlink" title="编写服务程序"></a>编写服务程序</h2><h3 id="服务介绍"><a href="#服务介绍" class="headerlink" title="服务介绍"></a>服务介绍</h3><hr>
-<div class="code-wrapper"><pre><code>几乎所有的操作系统在启动的时候都会启动一些不需要与用户交互的进程，这些进程在Windows中就被称作服务。它通常用于实现客户／服务器模式中的服务器方，如我们常见的Ｗeb服务IIS，当操作系统在启动后它就自动被运行，不管是否有人登陆到系统只要系统开启它就能得到运行。
-服务程序、服务控制程序（SCP，service control program）和服务控制管理器（SCM，service control manager）组成了Windows服务。我们可以通过服务控制程序操纵服务控制管理器来配置、启动、暂停、停止服务程序。其中服务程序和服务控制程序可以由我们自己来编写扩展，而服务控制管理器（windowssystem32servics.exe）则是操作系统内置的一个部件。
-SCM本身也是一个服务程序（windowssystem32servics.exe），作为windows的后台服务运行的。Winlogon在系统引导的早期会将SCM启动起来。
-</code></pre></div>
-<hr>
+<h2 id="编写服务程序"><a href="#编写服务程序" class="headerlink" title="编写服务程序"></a>编写服务程序</h2><h3 id="服务介绍"><a href="#服务介绍" class="headerlink" title="服务介绍"></a>服务介绍</h3><p>  几乎所有的操作系统在启动的时候都会启动一些不需要与用户交互的进程，这些进程在Windows中就被称作服务。它通常用于实现客户／服务器模式中的服<br>务器方，如我们常见的Ｗeb服务IIS，当操作系统在启动后它就自动被运行，不管是否有人登陆到系统只要系统开启它就能得到运行。<br>  服务程序、服务控制程序（SCP，service control program）和服务控制管理器（SCM，service control manager）组成了Windows服务。<br>  我们可以通过服务控制程序操纵服务控制管理器来配置、启动、暂停、停止服务程序。其中服务程序和服务控制程序可以由我们自己来编写扩展，而服务控制<br>管理器（windowssystem32servics.exe）则是操作系统内置的一个部件。<br>  SCM本身也是一个服务程序（windowssystem32servics.exe），作为windows的后台服务运行的。Winlogon在系统引导的早期会将SCM启动起来。</p>
 <p>可以看一下这篇文章,写的比较详细<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/swartz_lubel/article/details/70255686">https://blog.csdn.net/swartz_lubel/article/details/70255686</a></p>
 <p>倾旋博客中也已经给出了一个编写windwos服务的模板<br>还有几篇介绍windows服务编写的:<br> <a target="_blank" rel="noopener" href="http://www.haoservice.cn/2019/11/27/Applied13%E8%AE%A4%E8%AF%86windows%E6%9C%8D%E5%8A%A1%E5%B9%B6%E4%BD%BF%E7%94%A8VC++%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F/">http://www.haoservice.cn/2019/11/27/Applied13%E8%AE%A4%E8%AF%86windows%E6%9C%8D%E5%8A%A1%E5%B9%B6%E4%BD%BF%E7%94%A8VC++%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F/</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.codeproject.com/Articles/499465/Simple-Windows-Service-in-Cplusplus">https://www.codeproject.com/Articles/499465/Simple-Windows-Service-in-Cplusplus</a><br>模板代码执行:</p>
