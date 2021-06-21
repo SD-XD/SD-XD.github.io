@@ -207,9 +207,9 @@
 </ul>
 <ol>
 <li>Socket建立通信</li>
-<li>客户端执行命令并返回结果<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2></li>
+<li>客户端执行命令并返回结果</li>
 </ol>
-<p>服务端(监听端):<br>服务器端初始化<code>Winsock</code>环境后，便调用Socket丽数创建流式套接字;然后对<code>sockadd_in</code>结构体进行设置，设置服务器绑定的IP地址和端口等信息并调用<code>bind</code>函数来绑定;绑定成功后，就可以调用<code>listen</code>函数设置连接数量，并进行监听。直到有来自客户端的连接请求，服务器便调用<code>accept</code>函数接受连接请求，建立连接。这时，可以使用<code>recv</code>函数和<code>send</code>函数与客户端进行数据收发</p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>服务端(监听端):<br>服务器端初始化<code>Winsock</code>环境后，便调用Socket丽数创建流式套接字;然后对<code>sockadd_in</code>结构体进行设置，设置服务器绑定的IP地址和端口等信息并调用<code>bind</code>函数来绑定;绑定成功后，就可以调用<code>listen</code>函数设置连接数量，并进行监听。直到有来自客户端的连接请求，服务器便调用<code>accept</code>函数接受连接请求，建立连接。这时，可以使用<code>recv</code>函数和<code>send</code>函数与客户端进行数据收发</p>
 <p>客户端(接收端):<br>客户端初始化环境后,便调用Socket函数创建流式套接字;然后对<code>sockaddr_in</code>结构体进行设置，设置服务器的IP地址和端口等信息并调用<code>connect</code>函数向服务器发送连接请求，并等待服务器响应。服务器接受连接请求后，就成功地与服务器建立连接，这时，可以使用<code>recv</code>函数和<code>send</code>函数与客户端进行数据收发。</p>
 <p>为了方便理解画一个图<br><img src="/img/socket/1.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>创建一个函数,实现服务端的winsock初始化,创建流式socket,绑定服务端地址和端口和监听</p>
