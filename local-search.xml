@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>HOOK之隐藏进程</title>
+    <link href="/2021/06/22/HookZwQuerySystemInformation/"/>
+    <url>/2021/06/22/HookZwQuerySystemInformation/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一次跟师傅交流时师傅谈到有些EDR或AV,他们保护目标主机,甚至无进程,不经想到病毒实际上也常用这种技术。当然,做到隐藏,一个简单的dll注入或者劫持就可以,但本文主要讲解关于进程的隐藏。</p><p>PE文件隐藏可以通过</p><ul><li>进程伪装: 将进程名替换成其他正常进程的名称(修改PEB路径和命令行信息)</li><li>傀儡进程: 通过将主进程挂起,替换内存数据,卸载镜像,修改上下文,并执行真正我们想要执行的进程,这也是一些壳的原理</li><li>HOOK: 通过HOOK三环最底层API<code>ZwQuerySystemInformation</code>实现隐藏,这是本文的重点</li><li>COM劫持、DLL劫持、DLL注入……</li></ul><h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>在正向开发中,要想做到进程遍历,往往需要使用<code>EnumProcess</code>或是快照<code>CreateToolhelp32Snapshot</code>这些函数<br>而这些函数的底层(ring 3),都是调用的<code>ZwQuerySystemInformation</code></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">NTSTATUS WINAPI <span class="hljs-title">ZwQuerySystemInformation</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">  _In_      SYSTEM_INFORMATION_CLASS SystemInformationClass,</span></span><br><span class="hljs-params"><span class="hljs-function">  _Inout_   PVOID                    SystemInformation,</span></span><br><span class="hljs-params"><span class="hljs-function">  _In_      ULONG                    SystemInformationLength,</span></span><br><span class="hljs-params"><span class="hljs-function">  _Out_opt_ PULONG                   ReturnLength</span></span><br><span class="hljs-params"><span class="hljs-function">)</span></span>;<br></code></pre></td></tr></table></figure><p>如果通过hook进行对<code>ZwQuerySystemInformation</code>的重定向,那么就可以改变执行流,返回的信息中已经被我们篡改。<br>32位下和64位下需要修改的字节数是不同的,使用xdbg断点找到对应的硬编码</p><p>32位下:<br>需要修改5个字节硬编码</p><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-number">0xe9</span> xx xx xx xx<br></code></pre></td></tr></table></figure><p><img src="/img/HOOKZwQuerySystemInformation/1.png"></p><p><img src="/img/HOOKZwQuerySystemInformation/2.png"></p><p>64位下:<br>需要修改12个字节的硬编码</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">0x48</span> <span class="hljs-number">0</span>xb<span class="hljs-number">8</span>, xx xx xx xx xx xx xx xx<br><span class="hljs-attribute">0xFF</span> <span class="hljs-number">0</span>xE<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure><p><img src="/img/HOOKZwQuerySystemInformation/3.png"></p><p><img src="/img/HOOKZwQuerySystemInformation/4.png"><br>64位下改函数的名称已经改为<code>RtlGetNativeSystemInformation</code></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>socket之shell实现</title>
     <link href="/2021/06/21/RemoteCmd/"/>
     <url>/2021/06/21/RemoteCmd/</url>
