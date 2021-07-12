@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>内网靶场实战一 - SD</title>
+  <title>内网靶场实战二 - SD</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -127,7 +127,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="内网靶场实战一">
+            <span class="h2" id="subtitle" title="内网靶场实战二">
               
             </span>
 
@@ -137,8 +137,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-11 19:47" pubdate>
-        2021年7月11日 晚上
+      <time datetime="2021-07-12 19:47" pubdate>
+        2021年7月12日 晚上
       </time>
     </span>
   
@@ -149,7 +149,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      737 字
+      1.2k 字
     </span>
   
 
@@ -159,7 +159,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      14
        分钟
     </span>
   
@@ -197,43 +197,88 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">内网靶场实战一</h1>
+            <h1 style="display: none">内网靶场实战二</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本来不想写这些的,但是最近项目写起来确实稍有些枯燥,又不敢拿真实环境去打,奈何两个月过后要去比赛,所以这段时间会加强web打点和内网这块,这些方面我是小白,欢迎斧正。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>靶场地址:<a target="_blank" rel="noopener" href="http://vulnstack.qiyuanxuetang.net/vuln/detail/2/">http://vulnstack.qiyuanxuetang.net/vuln/detail/2/</a></p>
-<p><img src="/img/hongri1/1.png" srcset="/img/loading.gif" lazyload><br>网卡配置:</p>
-<p><img src="/img/hongri1/2.png" srcset="/img/loading.gif" lazyload></p>
-<p>网络拓扑图:<br>kali和web服务器模拟外网环境,并且web服务器有双网卡,一张通向内网<br><img src="/img/hongri1/3.png" srcset="/img/loading.gif" lazyload></p>
-<p>win7作为与外界相连的web服务器</p>
-<h2 id="web打点"><a href="#web打点" class="headerlink" title="web打点"></a>web打点</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>直接访问目标<br><img src="/img/hongri1/4.png" srcset="/img/loading.gif" lazyload></p>
-<p>试试弱密码root root,连接成功<br><img src="/img/hongri1/5.png" srcset="/img/loading.gif" lazyload></p>
-<p>再回来探测下端口信息</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">namp</span> -sV <span class="hljs-number">192.168.235.129</span><br></code></pre></td></tr></table></figure>
-<p><img src="/img/hongri1/6.png" srcset="/img/loading.gif" lazyload></p>
-<p>可以看到只有3306 mysql和80端口开放<br>再扫下目录<br>可以看到phpmyadmin和一个rar包,应该是源码泄露<br><img src="/img/hongri1/7.png" srcset="/img/loading.gif" lazyload></p>
-<p>phpmyadmin还是弱密码root root<br><img src="/img/hongri1/8.png" srcset="/img/loading.gif" lazyload></p>
-<p>压缩包解压后是yxcms<br><img src="/img/hongri1/9.png" srcset="/img/loading.gif" lazyload></p>
-<p>在网上搜锁该cms的漏洞,发现后台<br><img src="/img/hongri1/10.png" srcset="/img/loading.gif" lazyload></p>
-<p>还是弱口令 admin 123456登录后台<br>后台有个位置任意文件写入<br><img src="/img/hongri1/11.png" srcset="/img/loading.gif" lazyload></p>
-<p>但是没看到路径,尝试bp报错找到路径<br><img src="/img/hongri1/12.png" srcset="/img/loading.gif" lazyload></p>
-<p>访问测试一下,后来发现跟改的url有关,成功访问<br><img src="/img/hongri1/13.png" srcset="/img/loading.gif" lazyload></p>
-<p>这样一个shell就拿到了<br><img src="/img/hongri1/14.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>回到刚刚phpmyadmin界面<br>利用全局变量general_log去getshell</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams">SHOW <span class="hljs-keyword">VARIABLES</span> LIKE <span class="hljs-comment">&#x27;%general%&#x27;</span><br></code></pre></td></tr></table></figure>
-<p><img src="/img/hongri1/15.png" srcset="/img/loading.gif" lazyload><br>看到是off,是关闭的,于是尝试更改</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">set</span> global <span class="hljs-attribute">general_log</span>=on<br></code></pre></td></tr></table></figure>
-<p>再次查询就已经开启<br><img src="/img/hongri1/16.png" srcset="/img/loading.gif" lazyload><br>再把网站日志文件名和后缀名改一下</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">set</span> global <span class="hljs-attribute">general_log_file</span>=<span class="hljs-string">&#x27;C:/phpstudy/www/yxcms/log.php&#x27;</span><br></code></pre></td></tr></table></figure>
-<p>使用<code>SELECT &quot;&lt;?php eval($_POST[&#39;cmd&#39;]);?&gt;&quot;</code>写入shell<br><img src="/img/hongri1/17.png" srcset="/img/loading.gif" lazyload><br>连接成功<br><img src="/img/hongri1/18.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="内网漫游"><a href="#内网漫游" class="headerlink" title="内网漫游"></a>内网漫游</h2><p>因为平时cs用的比较多,所以这次就用msf试试<br>发现双网卡<br><img src="/img/hongri1/19.png" srcset="/img/loading.gif" lazyload><br><code>192.168.26.0/24</code>通向内网<br>net view无回显,tasklist发现无杀软<br><img src="/img/hongri1/20.png" srcset="/img/loading.gif" lazyload></p>
-<p>权限还可以,3389未开放<br><img src="/img/hongri1/21.png" srcset="/img/loading.gif" lazyload><br>因为权限够,也不需要提权了,直接修改注册表</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="hljs-string">&quot; &quot;</span>Server <span class="hljs-regexp">/v fDenyTSConnections /</span>t REG_DWORD <span class="hljs-regexp">/d 00000000 /</span>f<br></code></pre></td></tr></table></figure>
-<p>再次查看发现已经开启<br><img src="/img/hongri1/22.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="反弹shell到msf"><a href="#反弹shell到msf" class="headerlink" title="反弹shell到msf"></a>反弹shell到msf</h3><p>生成一个powershell的马<br><img src="/img/hongri1/23.png" srcset="/img/loading.gif" lazyload><br>监听<br><img src="/img/hongri1/24.png" srcset="/img/loading.gif" lazyload><br>但是执行好像没成功,msf也没收到会话<br><img src="/img/hongri1/25.png" srcset="/img/loading.gif" lazyload><br>应该是禁用了执行powershell,懒得改了,算了换个exe吧<br><img src="/img/hongri1/26.png" srcset="/img/loading.gif" lazyload><br>上传执行后成功反弹shell<br><img src="/img/hongri1/27.png" srcset="/img/loading.gif" lazyload><br>添加路由<br><img src="/img/hongri1/28.png" srcset="/img/loading.gif" lazyload><br>探测内网存活主机,发现两台<br><img src="/img/hongri1/29.png" srcset="/img/loading.gif" lazyload><br>直接扫一波永恒之蓝<br><img src="/img/hongri1/30.png" srcset="/img/loading.gif" lazyload><br>发现129这台为2008且有永恒之蓝<br>使用command模块打一波,命令执行成功<br><img src="/img/hongri1/31.png" srcset="/img/loading.gif" lazyload><br>想要反弹shell却失败了<br><img src="/img/hongri1/32.png" srcset="/img/loading.gif" lazyload><br>复制个shell给cs,没上线,很无语<br><img src="/img/hongri1/33.png" srcset="/img/loading.gif" lazyload><br>还是直接上吧,舒服多了<br><img src="/img/hongri1/34.png" srcset="/img/loading.gif" lazyload><br>抓一波密码<br><img src="/img/hongri1/35.png" srcset="/img/loading.gif" lazyload><br>抓到明文,这里其实就可以3389连上去看看<br><img src="/img/hongri1/36.png" srcset="/img/loading.gif" lazyload><br>不过还是先扫,探测一下存活主机<br><img src="/img/hongri1/37.png" srcset="/img/loading.gif" lazyload><br>这里第一时间是想横向一波,psexec,但是执行后服务已经建立,但是无shell反弹,突然想起这是台不出网主机,选择smb beacon即可<br><img src="/img/hongri1/38.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/hongri1/39.png" srcset="/img/loading.gif" lazyload></p>
-<p>03拿下<br><img src="/img/hongri1/40.png" srcset="/img/loading.gif" lazyload></p>
-<p>同样的方法拿下域控2008<br><img src="/img/hongri1/41.png" srcset="/img/loading.gif" lazyload></p>
+              <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><p>DC：</p>
+<ul>
+<li>IP：10.10.10.10</li>
+<li>OS：Windows 2012</li>
+</ul>
+<p>WEB：</p>
+<ul>
+<li>IP1：10.10.10.80</li>
+<li>IP2：192.168.111.80</li>
+<li>OS：Windows 2008</li>
+<li>网站搭建:Weblogic 10.3.6 MSSQL 2008</li>
+</ul>
+<p>PC：</p>
+<ul>
+<li>IP1：10.10.10.201</li>
+<li>IP2：192.168.111.201</li>
+<li>OS：Windows 7</li>
+</ul>
+<p>攻击机：</p>
+<ul>
+<li>IP：192.168.111.129</li>
+<li>OS：Windows 10</li>
+<li>IP：192.168.111.128</li>
+<li>OS：Kali</li>
+</ul>
+<p>内网网段：10.10.10.0/24<br>DMZ网段：192.168.111.0/24</p>
+<p>进入<code>C:\Oracle\Middleware\user_projects\domains\base_domain\bin</code>目录下管理员身份开启startWeblogic批处理程序<br><img src="/img/hongri2/2.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="web打点"><a href="#web打点" class="headerlink" title="web打点"></a>web打点</h2><p>使用nmap扫描端口<br><img src="/img/hongri2/3.png" srcset="/img/loading.gif" lazyload></p>
+<p>有445 SMB,3389 RDP登端口开启<br>1433端口和7001端口分别是是MSSQL和Weblogic服务<br><img src="/img/hongri2/4.png" srcset="/img/loading.gif" lazyload></p>
+<p>访问端口看看<br><img src="/img/hongri2/5.png" srcset="/img/loading.gif" lazyload><br>这里有个报错,我们先不管,由于是WebLogic,默认目录<code>http://xxxxxx:7001/console</code>下为后台管理页面登录<br><img src="/img/hongri2/6.png" srcset="/img/loading.gif" lazyload></p>
+<p>尝试弱密码后无果,使用工具尝试WebLogic漏反序列化漏洞,即CVE-2019-2725<br><img src="/img/hongri2/7.png" srcset="/img/loading.gif" lazyload></p>
+<p>命令也能成功执行<br><img src="/img/hongri2/8.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里就想上传一个稳定的webshell,用其他更强大的webshell工具去连<br><img src="/img/hongri2/9.png" srcset="/img/loading.gif" lazyload></p>
+<p>于是就想传一个webshell,用其他webshell工具去连<br>上传冰蝎jsp马到目录<code>C:\Oracle\Middleware\wlserver_10.3\server\lib\consoleapp\webapp\framework\skins\wlsconsole\images\shell.jsp</code><br><img src="/img/hongri2/10.png" srcset="/img/loading.gif" lazyload></p>
+<p>连接成功<br><img src="/img/hongri2/11.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里已经发现是一张双网卡主机,有可能10段通向内网<br><img src="/img/hongri2/12.png" srcset="/img/loading.gif" lazyload></p>
+<p>无ipc连接,net view命令无法使用<br><img src="/img/hongri2/13.png" srcset="/img/loading.gif" lazyload></p>
+<p>并已知是域内主机<br><img src="/img/hongri2/14.png" srcset="/img/loading.gif" lazyload></p>
+<p>查看进程无杀软,也无浏览器等信息(无法抓取浏览器密码),并且net命令返回ERROR 5 这是没有权限,于是准备反弹shell到后渗透神器cs,进行提权等操作</p>
+<p><img src="/img/hongri2/15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/hongri2/16.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="后渗透-内网漫游"><a href="#后渗透-内网漫游" class="headerlink" title="后渗透(内网漫游)"></a>后渗透(内网漫游)</h2><h3 id="提权及信息获取"><a href="#提权及信息获取" class="headerlink" title="提权及信息获取"></a>提权及信息获取</h3><p>直接powershell上线<br><img src="/img/hongri2/17.png" srcset="/img/loading.gif" lazyload></p>
+<p>甜土豆进行提权<br><img src="/img/hongri2/18.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过<code>nslookup</code>查询dns记录,这里查到一个<code>10.10.10.10</code>的ip,在域内,这个ip很有可能就是域控<br><img src="/img/hongri2/19.png" srcset="/img/loading.gif" lazyload></p>
+<p>又通过<code>net time</code>查到主域名称<br><img src="/img/hongri2/20.png" srcset="/img/loading.gif" lazyload></p>
+<p>抓取本机密码<br><img src="/img/hongri2/21.png" srcset="/img/loading.gif" lazyload><br>可以看到其中有mssql明文密码和Administrator明文密码</p>
+<p>准备3389连接,不过无论是<code>Administrator</code>还是<code>de1ay</code>都无法登录,准备添加一个账户,但添加后说没有权限,应该是普通用户组没有权限<br><img src="/img/hongri2/24.png" srcset="/img/loading.gif" lazyload></p>
+<p>使用命令添加到管理员组,连接成功<br><img src="/img/hongri2/25.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h3><p>扫描下同网段其他主机<br><img src="/img/hongri2/21.png" srcset="/img/loading.gif" lazyload></p>
+<p>扫描<code>192.168.111.0/24</code>以及他们的端口,发现一台名为<code>PC</code>主机,并且3389开启<br><img src="/img/hongri2/22.png" srcset="/img/loading.gif" lazyload></p>
+<p>再扫描10段<br><img src="/img/hongri2/23.png" srcset="/img/loading.gif" lazyload><br>发现一台名为DC主机,看着名字就知道是域控,加上刚刚探测dns和主域名称,并且他的ip是<code>10.10.10.10</code>,基本可以判断这台就是域控</p>
+<p>那么在域控明确的情况下优先处理<code>DC</code>,首先想到的就是pth,因为域内很多密码都是批量设置的,这必须要试一下<br>使用当前抓取的Administrator账户和密码来传递</p>
+<p><img src="/img/hongri2/26.png" srcset="/img/loading.gif" lazyload><br>这里应该是成功了,但是迟迟未上线</p>
+<p><img src="/img/hongri2/27.png" srcset="/img/loading.gif" lazyload><br>太概率是由于对方不出网,无法形成反向shell,不出网的话一般就用smb处理,翻回刚刚的扫描记录,对方445端口是开启的,可以使用smb拿不出网主机<br><img src="/img/hongri2/28.png" srcset="/img/loading.gif" lazyload></p>
+<p>新增一个SMB beacon<br><img src="/img/hongri2/29.png" srcset="/img/loading.gif" lazyload></p>
+<p>再次使用psexec pass the hash<br><img src="/img/hongri2/30.png" srcset="/img/loading.gif" lazyload></p>
+<p>成功拿下DC<br><img src="/img/hongri2/31.png" srcset="/img/loading.gif" lazyload></p>
+<p>抓取DC密码<br>hashdump<br><img src="/img/hongri2/32.png" srcset="/img/loading.gif" lazyload><br>有了域内<code>KRBTGT</code>账户的hash就可以伪造黄金票据</p>
+<p>logonpasswords<br><img src="/img/hongri2/33.png" srcset="/img/loading.gif" lazyload></p>
+<p>查询域管账户<br><img src="/img/hongri2/34.png" srcset="/img/loading.gif" lazyload><br>DC就算是拿下了</p>
+<p>用相同的方式拿下PC<br><img src="/img/hongri2/35.png" srcset="/img/loading.gif" lazyload><br>PC是出网的可以直接用http beacon</p>
+<p><img src="/img/hongri2/36.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h3><p>做权限维持方式很多,粘滞键、启动项、影子用户等等。这次是拿到域控,这种情况下,黄金票据是一个很好的维权手段<br>黄金票据是伪造票据授予票据（TGT），也被称为认证票据。TGT仅用于向域控制器上的密钥分配中心（KDC）证明用户已被其他域控制器认证。</p>
+<p>黄金票据的条件要求：</p>
+<ol>
+<li>域名称</li>
+<li>域的SID值</li>
+<li>域的KRBTGT账户NTLM密码哈希</li>
+<li>伪造用户名</li>
+</ol>
+<p>黄金票据可以在拥有普通域用户权限和KRBTGT账号的哈希的情况下用来获取域管理员权限，上面已经获得域控的 system 权限了，还可以使用黄金票据做权限维持，当域控权限掉后，在通过域内其他任意机器伪造票据重新获取最高权限。</p>
+<p>这里我们已经拿到了<code>KRBTGT</code>账户的hash值<br><img src="/img/hongri2/37.png" srcset="/img/loading.gif" lazyload></p>
+<p>并且也拿到了域的SID值,去掉最后的-1001<br><img src="/img/hongri2/38.png" srcset="/img/loading.gif" lazyload><br>就可以伪造一张黄金票据</p>
+<p>选择最边缘的web<br><img src="/img/hongri2/39.png" srcset="/img/loading.gif" lazyload></p>
+<p>伪造黄金票据成功<br><img src="/img/hongri2/40.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里为了测试用了PC,一开始是无法访问域控目录的<br><img src="/img/hongri2/41.png" srcset="/img/loading.gif" lazyload></p>
+<p>生成黄金票据后<br><img src="/img/hongri2/42.png" srcset="/img/loading.gif" lazyload></p>
+<p>即使域控这台主机权限掉了,我们也能使用其他边缘主机用这个黄金票据模拟获得最高权限,而且由于跳过AS验证,无需担心域管密码被修改<br><img src="/img/hongri2/43.png" srcset="/img/loading.gif" lazyload></p>
+<p>添加域管账户<br><img src="/img/hongri2/44.png" srcset="/img/loading.gif" lazyload><br>在域控上查看域管账户,添加成功<br><img src="/img/hongri2/45.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -254,18 +299,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/12/hongri2/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">内网靶场实战二</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/03/TengSnake/">
-                        <span class="hidden-mobile">滕蛇</span>
+                      <a href="/2021/07/11/hongri1/">
+                        <span class="hidden-mobile">内网靶场实战一</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
