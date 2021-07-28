@@ -149,7 +149,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      698 字
+      707 字
     </span>
   
 
@@ -224,7 +224,7 @@
 <p>在目标机器执行的时候提示错误的密码,猜想大概是会话断联的原因。如果STATE是active应该是没问题的。</p>
 <h2 id="拿下DC"><a href="#拿下DC" class="headerlink" title="拿下DC"></a>拿下DC</h2><p>将所有拿下的主机的hash全部dump出来,整合后发现有Administrator的账户hash,且是域中账户,而在域中Administrator是作为域管账户的。<br>445端口开启<br><img src="/img/br_domain2/15.png" srcset="/img/loading.gif" lazyload></p>
 <p>尝试pth<br><img src="/img/br_domain2/16.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/br_domain2/17.png" srcset="/img/loading.gif" lazyload><br>失败了,如果不能pth这个hash将索然无味,又不能拿到明文<br>这里搞了很久,然后又回去信息收集。<br>搞来搞去搞了很久,还是那么7、8台主机,最后也是没办法,把所有Administrator用户的hash全部pass了一遍,终于拿下了域控</p>
+<p><img src="/img/br_domain2/17.png" srcset="/img/loading.gif" lazyload><br>失败了,如果不能pth这个hash将索然无味,又不能拿到明文<br>这里搞了很久,然后又回去信息收集。<br>搞来搞去搞了很久,还是那么7、8台主机,最后也是没办法,由于抓到了很多密码,把所有Administrator用户的hash全部pass了一遍,终于拿下了域控</p>
 <p><img src="/img/br_domain2/18.png" srcset="/img/loading.gif" lazyload></p>
 <p>导出ntds,抓下密码,这里使用mimikatz<br><code>lsadump::dcsync /domain:xxx /all /csv command</code></p>
 <p><img src="/img/br_domain2/19.png" srcset="/img/loading.gif" lazyload></p>
