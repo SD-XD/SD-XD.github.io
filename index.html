@@ -144,6 +144,97 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/08/14/bypass_open_basedir/" target="_self">
+          <img src="/img/" srcset="/img/loading.gif" lazyload alt="Bypass open_basedir">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/14/bypass_open_basedir/" target="_self">
+          Bypass open_basedir
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/14/bypass_open_basedir/" target="_self">
+          
+          
+            
+          
+          open_basediropen_basedir是php.ini中的一个配置选项，可用于将用户访问文件的活动范围限制在指定的区域。在php.ini中设置open_basedir的值
+
+
+设置open_basedir=/var/www/html/,通过web访问服务器的用户就无法获取服务器上除了/var/www/html/这个目录以外的文件。假设这时连接一个webshell,当webshell工具尝
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-14 19:47" pubdate>
+              2021-08-14
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/08/05/bypass_disable_function/" target="_self">
+          <img src="/img/bypass_disable_function/17.png" srcset="/img/loading.gif" lazyload alt="浅析Bypass disable_functions">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/05/bypass_disable_function/" target="_self">
+          浅析Bypass disable_functions
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/05/bypass_disable_function/" target="_self">
+          
+          
+            
+          
+          disable_functionsdisable_functions是php.ini中的一个设置选项，可以用来设置PHP环境禁止使用某些函数，通常是网站管理员为了安全起见，用来禁用某些危险的命令执行函数等。
+
+比如拿到一个webshell,用管理工具去连接,执行命令发现ret=127,实际上就是因为被这个限制的原因
+
+黑名单1assert,system,passthru,exec,pcntl_ex
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-05 19:47" pubdate>
+              2021-08-05
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/07/31/cpl/" target="_self">
           <img src="/img/cpl/17.png" srcset="/img/loading.gif" lazyload alt="巧用cpl文件维权和免杀">
         </a>
@@ -516,102 +607,6 @@ NETNET命令是功能强大的以命令行方式执行的工具。它包含了�
             <i class="iconfont icon-date"></i>
             <time datetime="2021-06-24 19:47" pubdate>
               2021-06-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/06/23/HookZwQuerySystemInformation/" target="_self">
-          <img src="/img/HOOKZwQuerySystemInformation/8.png" srcset="/img/loading.gif" lazyload alt="HOOK之进程隐藏">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/06/23/HookZwQuerySystemInformation/" target="_self">
-          HOOK之进程隐藏
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/06/23/HookZwQuerySystemInformation/" target="_self">
-          
-          
-            
-          
-          前言一次跟师傅交流时师傅谈到有些EDR或AV,他们保护目标主机,甚至无进程,不经想到病毒实际上也常用这种技术。当然,做到隐藏,一个简单的dll注入或者劫持就可以,但本文主要讲解关于进程的隐藏。
-PE文件隐藏可以通过
-
-进程伪装: 将进程名替换成其他正常进程的名称(修改PEB路径和命令行信息)
-傀儡进程: 通过将主进程挂起,替换内存数据,卸载镜像,修改上下文,并执行真正我们想要执行的进程,这也是一些
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 19:47" pubdate>
-              2021-06-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/06/21/RemoteCmd/" target="_self">
-          <img src="/img/socket/3.png" srcset="/img/loading.gif" lazyload alt="socket之shell实现">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/06/21/RemoteCmd/" target="_self">
-          socket之shell实现
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/06/21/RemoteCmd/" target="_self">
-          
-          
-            
-          
-          SocketSocket中文为”套接字”,实际上是windows的API,程序员无需知道TCP/IP的细节可直接调用网络编程接口,Socket中有两种通信协议可供选择
-
-TCP
-UDPTCP是安全的,在传输数据前必须建立连接,这个连接实际上是三次握手;UDP则是不安全的,但是他的效率是比TCP要高的,QQ实际上就是使用UDP协议思路是非常简单的
-
-
-Socket建立通信
-客户端执行命令并返回结果
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-21 21:45" pubdate>
-              2021-06-21
             </time>
           </div>
         
