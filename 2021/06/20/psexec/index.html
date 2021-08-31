@@ -149,7 +149,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.2k 字
     </span>
   
 
@@ -159,7 +159,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      31
        分钟
     </span>
   
@@ -200,8 +200,7 @@
             <h1 style="display: none">psexec原理分析</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>参加某行动时通过psexec横向过几台主机,正好之前在网上看到很多大佬分析过这款工具,今天也自己动手重新分析一次<br>因为很大程度上是学着大佬分析思路来分析的,所以先把参考写在前面:<br><a target="_blank" rel="noopener" href="https://payloads.online/archivers/2020-04-02/1">https://payloads.online/archivers/2020-04-02/1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41874930/article/details/108455478">https://blog.csdn.net/qq_41874930/article/details/108455478</a></p>
-<h2 id="Psexec"><a href="#Psexec" class="headerlink" title="Psexec"></a>Psexec</h2><p>Psexec被编写的初衷是为了方便服务器管理员管理大量的机器而开发的，但由于它的便捷，同时也被黑客使用。<br>psexec工具下载地址:<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec">https://docs.microsoft.com/en-us/sysinternals/downloads/psexec</a><br>cs也直接集成了这款工具</p>
+              <h2 id="Psexec"><a href="#Psexec" class="headerlink" title="Psexec"></a>Psexec</h2><p>Psexec被编写的初衷是为了方便服务器管理员管理大量的机器而开发的，但由于它的便捷，同时也被黑客使用。<br>psexec工具下载地址:<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec">https://docs.microsoft.com/en-us/sysinternals/downloads/psexec</a><br>cs也直接集成了这款工具</p>
 <p><img src="/img/psexec/1.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Psexec原理分析"><a href="#Psexec原理分析" class="headerlink" title="Psexec原理分析"></a>Psexec原理分析</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
 <li>win10  ip：192.168.154.7</li>
@@ -306,7 +305,7 @@
 
 
 <p><img src="/img/psexec/24.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>本次研究psexec到这就基本结束了,我自己是没有能力研究出来的,参考了很多大佬的文章,尤其是倾旋大佬,再次感谢！</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://payloads.online/archivers/2020-04-02/1">https://payloads.online/archivers/2020-04-02/1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41874930/article/details/108455478">https://blog.csdn.net/qq_41874930/article/details/108455478</a></p>
 
             </div>
             <hr>
