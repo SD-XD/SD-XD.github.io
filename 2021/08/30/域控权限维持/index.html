@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>域渗透之域控权限维持 - SD</title>
+  <title>浅谈域控权限维持 - SD</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -127,7 +127,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="域渗透之域控权限维持">
+            <span class="h2" id="subtitle" title="浅谈域控权限维持">
               
             </span>
 
@@ -137,8 +137,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-30 19:47" pubdate>
-        2021年8月30日 晚上
+      <time datetime="2021-08-30 00:38" pubdate>
+        2021年8月30日 凌晨
       </time>
     </span>
   
@@ -197,7 +197,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">域渗透之域控权限维持</h1>
+            <h1 style="display: none">浅谈域控权限维持</h1>
             
             <div class="markdown-body">
               <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拿下域控,渗透就结束了吗?实际上,往往刚刚开始。<br>本文就域控权限维持的两种方法展开研究:<code>SSP</code>和<code>PasswordChangeNotify</code>。</p>
@@ -246,7 +246,11 @@
 <h3 id="技术复现"><a href="#技术复现" class="headerlink" title="技术复现"></a>技术复现</h3><p>前人栽树,后人乘凉。<br>项目地址:<a target="_blank" rel="noopener" href="https://github.com/clymb3r/Misc-Windows-Hacking">https://github.com/clymb3r/Misc-Windows-Hacking</a></p>
 <p>下载后将sln文件打开,右键解决方案,将MFC的使用设置为在静态库中使用MFC编译工程,然后F7编译。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/12.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/13.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="dll生成成功之后就需要将dll注入-这里估摸着自己写一个远线程注入也可以-同样可以使用powershell脚本进行注入。"><a href="#dll生成成功之后就需要将dll注入-这里估摸着自己写一个远线程注入也可以-同样可以使用powershell脚本进行注入。" class="headerlink" title="dll生成成功之后就需要将dll注入,这里估摸着自己写一个远线程注入也可以,同样可以使用powershell脚本进行注入。"></a>dll生成成功之后就需要将dll注入,这里估摸着自己写一个远线程注入也可以,同样可以使用powershell脚本进行注入。</h2><h2 id="https-github-com-clymb3r-PowerShell-blob-master-Invoke-ReflectivePEInjection-Invoke-ReflectivePEInjection-ps1"><a href="#https-github-com-clymb3r-PowerShell-blob-master-Invoke-ReflectivePEInjection-Invoke-ReflectivePEInjection-ps1" class="headerlink" title="https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1"></a><a target="_blank" rel="noopener" href="https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1">https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1</a></h2><p>使用该将HookPasswordChange.dll注入内存</p>
+<p>dll生成成功之后就需要将dll注入,这里估摸着自己写一个远线程注入也可以,同样可以使用powershell脚本进行注入。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1">https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1</a></p>
+</blockquote>
+<p>使用该将HookPasswordChange.dll注入内存</p>
 <blockquote>
 <p>Set-ExecutionPolicy bypass<br>Import-Module .\Invoke-ReflectivePEInjection.ps1<br>Invoke-ReflectivePEInjection -PEPath HookPasswordChange.dll -procname lsass</p>
 </blockquote>
@@ -277,9 +281,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/31/windows%E7%BB%B4%E6%8C%81%E6%9D%83%E9%99%90%E6%80%BB%E7%BB%93/">
+                      <a href="/2021/09/01/%E4%BB%8E0%E5%AD%A6%E4%B9%A0URLDNS/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">从0学习DNSURL利用链</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
