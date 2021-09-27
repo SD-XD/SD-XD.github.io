@@ -231,7 +231,7 @@
 <h2 id="SMB-Beacon"><a href="#SMB-Beacon" class="headerlink" title="SMB Beacon"></a>SMB Beacon</h2><p><img src="/img/cs%E4%B8%8A%E7%BA%BF%E4%B8%8D%E5%87%BA%E7%BD%91%E4%B8%BB%E6%9C%BA/10.png" srcset="/img/loading.gif" lazyload></p>
 <p>该方法通过已有的父Beacon使用SMB协议进行正向连接不出网机器，要求目标开启445端口，通过命名管道进行认证即可上线。其实有点像psexec这样的工具，有用户名和hash后，即可执行远程命令，其原理相似。内网的机器密码相同的情况很多，这也是为什么现在为了提高安全性不能批量设置密码，内网渗透一但有了密码往往有时候就宣告结束。</p>
 <p>并且有个好处就是SMB协议一般防火墙是不拦截的，在一定程度上可以规避防火墙拦截。</p>
-<p>先使用hashdump和logonpasswords命令抓一波密码。由于这里是win2012系统，是无法直接抓取明文密码的，这里也不需要去修改注册表，或者通过mimilab.dll注入的方式去获取明文密码，有hash就足够了，SMB验证身份本身用的就是NTMLv2协议。</p>
+<p>先使用hashdump和logonpasswords命令抓一波密码。由于这里是win2012系统，是无法直接抓取明文密码的，这里也不需要去修改注册表，或者通过mimilib.dll注入的方式去获取明文密码，有hash就足够了，SMB验证身份本身用的就是NTMLv2协议。</p>
 <p>这里是抓到了该机器上的hash</p>
 <p><img src="/img/cs%E4%B8%8A%E7%BA%BF%E4%B8%8D%E5%87%BA%E7%BD%91%E4%B8%BB%E6%9C%BA/5.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
