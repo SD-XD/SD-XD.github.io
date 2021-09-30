@@ -144,66 +144,6 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/09/23/%E4%B8%8D%E5%87%BA%E7%BD%91%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%BA%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
-          <img src="/img/cs%E4%B8%8A%E7%BA%BF%E4%B8%8D%E5%87%BA%E7%BD%91%E4%B8%BB%E6%9C%BA/10.png" srcset="/img/loading.gif" lazyload alt="不出网主机上线的几种方式">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/23/%E4%B8%8D%E5%87%BA%E7%BD%91%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%BA%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
-          不出网主机上线的几种方式
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/09/23/%E4%B8%8D%E5%87%BA%E7%BD%91%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%BA%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
-          
-          
-            
-          
-          前言拿到一台边缘机器后，内网的机器很有可能大多数都不出网，这时又想上线cs方便后续操作。本文就如何上线不出网主机的方式进行了总结。
-环境搭建目标内网机器
-os：win server 2012
-
-ip：192.168.57.137
-
-
-
-边缘机器
-os：win server 2012
-
-ip1：192.168.1.103（出网）
-
-ip2：192.168.57.136
-
-
-
-攻击机器
-os：kali
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-23 19:47" pubdate>
-              2021-09-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/09/10/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" target="_self">
           <img src="/img/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/15.png" srcset="/img/loading.gif" lazyload alt="内网穿透之多层代理">
         </a>
@@ -606,11 +546,56 @@ cpl文件本质是属于PE文件
     </article>
   </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/07/26/br_domain2/" target="_self">
+          <img src="/img/br_domain2/24.png" srcset="/img/loading.gif" lazyload alt="渗透日记一(下)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/26/br_domain2/" target="_self">
+          渗透日记一(下)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/26/br_domain2/" target="_self">
+          
+          
+            
+          
+          前言上次说到,探测到内网三台主机有ms17010的漏洞,准备深挖一波。
+MS17010cs上还是不太好打,派生个会话给msf。我的vps是windows server的,一开始下了个windows版的msf在vps上,但是添加路由的时候一直说我参数不对,就不知道咋回事。
+还是算了,就搞个代理到本机用虚拟机kali吧。我用的是frp,vps当server,虚拟机当client
+vps配置frps.i
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-26 19:47" pubdate>
+              2021-07-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
